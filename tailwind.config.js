@@ -4,9 +4,8 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      sans: ['ui-sans-serif', 'system-ui', ],
-      serif: ['YuMincho', 'Yu Mincho', ],
-      mono: ['ui-monospace', 'SFMono-Regular',],
+      serif: ["YuMincho", "Yu Mincho"],
+      playfair: ["Playfair Display SC Regular"],
     },
     extend: {
       colors: {

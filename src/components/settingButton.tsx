@@ -1,7 +1,13 @@
 export const SettingButton = () => {
-  return <button className="btn btn-outline btn-primary"><span className="text-white font-serif">設定</span></button>;
+  return (
+    <div className="w-full h-full p-[3px] ">
+      <button className="btn btn-outline btn-primary w-full h-full p-[3px] bg-orange bg-opacity-20 ">
+        <span className="text-white text-3xl font-serif font-medium w-1/3 [text-align-last:justify] [-webkit-text-stroke:_2px_#FEA237;] 
+        [paint-order:stroke_fill]">設定</span>
+      </button>
+    </div>
+  );
 };
-
 
 // const style = {
 
@@ -12,7 +18,7 @@ export const SettingButton = () => {
 //         --shape-lower-right:100% calc(100% - var(--shape-offset) ), calc(100% - var(--shape-offset)) 100%;
 //         --shape-lower-left:var(--shape-offset) 100%,0  calc(100% - var(--shape-offset));
 //         --octagon:polygon(var(--shape-upper-left), var(--shape-upper-right),var(--shape-lower-right),var(--shape-lower-left));
-        
+
 //         --base-color: #FFFAF7;
 //         --main-color: #FF8F43;
 //         --inset:3px;
@@ -22,7 +28,7 @@ export const SettingButton = () => {
 //         background-color:currentcolor;
 //         clip-path:var(--octagon);
 //       }
-      
+
 //       .c-button::before {
 //         content: "";
 //         position: absolute;
