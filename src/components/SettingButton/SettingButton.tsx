@@ -1,4 +1,4 @@
-import "./settingButton.css";
+import "./SettingButton.css";
 
 export const SettingButton = () => {
   return (
