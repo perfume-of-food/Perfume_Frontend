@@ -1,28 +1,38 @@
 :root {
   --shape-offset: 8px;
-  --shape-upper-left: 0  var(--shape-offset),var(--shape-offset) 0;
-  --shape-upper-right:calc(100% - var(--shape-offset)) 0, 100% var(--shape-offset);
-  --shape-lower-right:100% calc(100% - var(--shape-offset) ), calc(100% - var(--shape-offset)) 100%;
-  --shape-lower-left:var(--shape-offset) 100%,0  calc(100% - var(--shape-offset));
-  --octagon:polygon(var(--shape-upper-left), var(--shape-upper-right),var(--shape-lower-right),var(--shape-lower-left));
-  
-  --base-color: #FEA237;
-  --main-color: #000000CC;
-  --inset:1px;  
-}
+  --shape-upper-left: 0 var(--shape-offset), var(--shape-offset) 0;
+  --shape-upper-right: calc(100% - var(--shape-offset)) 0,
+    100% var(--shape-offset);
+  --shape-lower-right: 100% calc(100% - var(--shape-offset)),
+    calc(100% - var(--shape-offset)) 100%;
+  --shape-lower-left: var(--shape-offset) 100%,
+    0 calc(100% - var(--shape-offset));
+  --octagon: polygon(
+    var(--shape-upper-left),
+    var(--shape-upper-right),
+    var(--shape-lower-right),
+    var(--shape-lower-left)
+  );
 
+  --base-color: #fea23733;
+  --main-color: #000000cc;
+  --inset: 1px;
+}
 
 .c-button {
   position: relative;
-  background-color:var(--base-color);
-  clip-path:var(--octagon);
+  background-color: var(--base-color);
+  outline: 6px solid blue;
+  outline-offset: -6px;
+  /*  border: 6px solid blue; */
+  clip-path:var(--octagon); 
 }
 
-.c-button::before {
+/* .c-button::before {
   content: "";
   position: absolute;
   inset:var(--inset);
   background-color: var(--main-color);
   clip-path:var(--octagon);
   z-index: -1;
-}
+} */

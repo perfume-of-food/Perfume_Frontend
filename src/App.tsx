@@ -11,9 +11,8 @@ function App() {
           </span>
         </div>
         <div className="row-[span_7_/_span_7] col-[span_27_/_span_27] border-b-[1px] border-orange">
-          <div className="flex w-full h-full justify-center items-center">
+          
             <SettingButton />
-          </div>
         </div>
         <div className="row-[span_71_/_span_71] col-[span_100_/_span_100] border-b-[1px] border-orange"></div>
         <div className="row-[span_22_/_span_22] col-[span_67_/_span_67] border-r-[1px] border-orange"></div>
