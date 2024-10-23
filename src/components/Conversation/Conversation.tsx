@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Conversation.css";
 
 export const Conversation = () => {
-  const texts = ["ようこそ、私たちの特別な場所へ。", "変更", "完了"]; 
+  const texts = ["ようこそ、私たちの特別な場所へ。", "第二句话", "第三句话"]; 
   const [textIndex, setTextIndex] = useState(0);
 
   const handleClick = () => {
