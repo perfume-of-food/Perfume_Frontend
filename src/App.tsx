@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { SettingButton } from "./components/SettingButton/settingButton";
+import { SettingButton } from "./components/SettingButton/SettingButton";
 function App() {
   return (
     <div className="w-screen h-screen border-x-[32px] border-y-[28px] border-black">
