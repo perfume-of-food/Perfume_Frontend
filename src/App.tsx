@@ -6,7 +6,9 @@ function App() {
     <div className="w-screen h-screen border-x-[32px] border-y-[28px] border-black">
       <div className="grid grid-rows-[repeat(100,1fr)] grid-cols-[repeat(100,1fr)] w-full h-full border-[10px] border-orange bg-black">
         <div className="relative row-[span_7_/_span_7] col-[span_73_/_span_73] border-b-[1px] border-r-[1px] border-orange">
-          <span className="absolute -top-[38px] -left-[16px] leading-none font-playfair text-[140px] text-orange">MENU</span>
+          <span className="leading-none font-playfair text-[8.3em] inline-block -translate-x-[0.7rem] -translate-y-[1.9rem] text-orange">
+            MENU
+          </span>
         </div>
         <div className="row-[span_7_/_span_7] col-[span_27_/_span_27] border-b-[1px] border-orange">
           <div className="flex w-full h-full justify-center items-center">
