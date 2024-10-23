@@ -1,0 +1,13 @@
+.shape {
+    width: 810px;
+    height: 108px;
+    background-color: #474747;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .text {
+    color: #FEA237;
+    font-size: 33px; 
+  }
