@@ -15,4 +15,11 @@ body {
     font-display: swap;
     src: url(/fonts/PlayfairDisplaySC-Regular.ttf);
   }
+  @font-face {
+    font-family: "DotGothic16 Regular";
+    font-style: normal;
+    font-weight: Regular;
+    font-display: swap;
+    src: url(/fonts/DotGothic16-Regular.ttf);
+  }
 }
