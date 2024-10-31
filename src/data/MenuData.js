@@ -9,7 +9,7 @@ const MenuData = [
 {
     title: '草莓冰淇淋',
     img:'./src/statics/food/strawberry_icecream.png',
-    description:'「香草蛋糕」:在这里替换掉你想要的形容',
+    description:'「草莓冰淇淋」:在这里替换掉你想要的形容',
     id: 2,
 },
 
