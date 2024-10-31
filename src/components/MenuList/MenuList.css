@@ -1,0 +1,23 @@
+.img-container {
+    width: 192px;
+    height: 192px;
+    position: relative;
+  }
+  
+  .svg-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s ease;
+    opacity: 0.2;
+  }
+  
+  .svg-overlay.active {
+    opacity: 0.5;
+  }
+  
+  .svg-path {
+    fill: #fea237;
+    stroke: #fea237;
+  }
+  

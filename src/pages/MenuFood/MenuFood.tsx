@@ -1,10 +1,13 @@
 import { SettingButton } from "../../components/SettingButton/SettingButton";
 import { DetermineButton } from "../../components/DetermineButton/DetermineButton";
-import { useState } from "react";
 import Header from '../../components/Header/Header';
+import { MenuData } from "../../data/MenuData";
+import Menulist from "../../components/MenuList/MenuList";
+import { useState } from "react";
 
 
 export function MenuFood(){
+    const [meals] = useState(MenuData)
 return (
     <div className="w-screen h-screen border-x-[32px] border-y-[28px] border-black">
       <div className="grid grid-rows-[repeat(100,1fr)] grid-cols-[repeat(100,1fr)] w-full h-full border-[10px] border-orange bg-black">
@@ -19,10 +22,12 @@ return (
             <SettingButton />
         </div>
         {/* 菜单选项栏 */}
-        <div className="row-[span_11_/_span_11] col-[span_100_/_span_100] border-b-[1px] border-orange"></div>
+        <div className="row-[span_11_/_span_11] col-[span_100_/_span_100] border-b-[1px] border-orange">
+            <Header/>
+        </div>
         {/* 菜单选项内容，可滑动模块 */}
-        <div className="row-[span_60_/_span_60] col-[span_67_/_span_67] border-r-[1px] border-b-[1px] border-orange">
-        <Header/>
+        <div className="row-[span_60_/_span_60] col-[span_67_/_span_67] border-r-[1px] border-b-[1px] border-orange h-full overflow-y-scroll">
+        <Menulist meals ={meals}/>
         </div>
         {/* 猫头鹰说话栏 */}
         <div className="relative row-[span_60_/_span_60] col-[span_33_/_span_33] border-b-[1px] border-orange">
