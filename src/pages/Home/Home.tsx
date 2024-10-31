@@ -1,22 +1,17 @@
 import { HomeButton } from "../../components/HomeButton/HomeButton";
 
-export function Home(){
-    const backgroundStyle = {
-        backgroundImage: "url('/src/statics/home_background.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat"
-    };
-    return(
-        //最外层
-             <div
-            className="w-screen h-screen bg-black"
-            style={backgroundStyle}
+export function Home() {
+    return (
+        <div className="w-screen min-h-screen bg-black bg-cover bg-center bg-no-repeat" 
+             style={{ backgroundImage: "url('/src/statics/home_background.png')" ,
+             height:"100svh"
+             }}
              >
-                <div className="flex justify-center items-center pt-[843px] pb-[300px] space-y-[50px]">
-                        <HomeButton />
+            <div className="flex justify-center items-center min-h-screen">
+                <div className="flex justify-center items-center space-y-12 mt-auto mb-[300px]">
+                    <HomeButton />
                 </div>
             </div>
-
+        </div>
     );
 }
