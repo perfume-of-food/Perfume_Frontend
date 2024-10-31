@@ -22,7 +22,7 @@ return (
         <div className="row-[span_11_/_span_11] col-[span_100_/_span_100] border-b-[1px] border-orange"></div>
         {/* 菜单选项内容，可滑动模块 */}
         <div className="row-[span_60_/_span_60] col-[span_67_/_span_67] border-r-[1px] border-b-[1px] border-orange">
-        
+        <Header/>
         </div>
         {/* 猫头鹰说话栏 */}
         <div className="relative row-[span_60_/_span_60] col-[span_33_/_span_33] border-b-[1px] border-orange">

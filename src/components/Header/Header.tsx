@@ -25,14 +25,11 @@ const mealsData = [
     },
 ];
 
-const Header = ({title}) => {
+const Header = () => {
     const [navs] = useState(mealsData);
 
     return (
         <>
-            <div>
-                <h1 className='h1'>{title}</h1>
-            </div>
             <ul className='flex justify-center items-center gap-8'>
                 {navs.map((nav, index) => (
                     <li key={index} className='li'>
