@@ -1,5 +1,5 @@
-import { SettingButton } from "../../components/SettingButton/SettingButton";
-import { MoodPanel } from "../../components/MoodPanel/MoodPanel";
+import { SettingButton } from "@/components/SettingButton/SettingButton";
+import { MoodPanel } from "@/components/MoodPanel/MoodPanel";
 import { MoodDescription } from "@/components/MoodDescription/MoodDescription";
 import { DetermineButton } from "@/components/DetermineButton/DetermineButton";
 import ConfirmPanel from "@/components/ConfirmPanel/ConfirmPanel";

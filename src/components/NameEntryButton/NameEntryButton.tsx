@@ -1,8 +1,8 @@
-interface DetermineButtonProps {
+interface NameEntryButtonProps {
   onClick: () => void;
 }
 
-export const DetermineButton = ({ onClick }: DetermineButtonProps) => {
+export const NameEntryButton = ({ onClick }: NameEntryButtonProps) => {
   return (
     <div className="flex w-full h-full justify-center items-center">
       <div
@@ -24,7 +24,7 @@ export const DetermineButton = ({ onClick }: DetermineButtonProps) => {
           />
         </svg>
         <span className="text-white text-5xl font-dot font-medium inline-block absolute text-center [-webkit-text-stroke:_2px_#FEA237;] [paint-order:stroke_fill] pointer-events-none">
-          決めた
+          入力する
         </span>
       </div>
     </div>

@@ -1,18 +1,23 @@
 import { useState } from "react";
 import "./Conversation.css";
-
+import { useIntroStore } from "@/stores/useIntroStore";
+import { Step } from "@/types/steps";
 export const Conversation = () => {
-  const texts = ["ようこそ、私たちの特別な場所へ。", "第二句话", "第三句话"]; 
+  const { step, getCurrentStepMessages, moveToNextStep } = useIntroStore();
+  const conversation = getCurrentStepMessages(step);
   const [textIndex, setTextIndex] = useState(0);
 
   const handleClick = () => {
-    setTextIndex((prevIndex) => (prevIndex + 1) % texts.length); 
+    if (textIndex === conversation.length - 1) {
+      moveToNextStep();
+    }
+    const nextIndex = (textIndex + 1) % conversation.length;
+    setTextIndex(nextIndex);
   };
 
   return (
     <div className="container">
-      <div className="text-box">
-        
+      <div className="text-box" onClick={handleClick}>
         <div className="svg-container">
           <svg
             className="top-left-svg"
@@ -27,42 +32,34 @@ export const Conversation = () => {
               fillOpacity="0.2"
               stroke="#FEA237"
             />
-            <text className="owner"
-                  x="50%"
-                  y="50%"
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                  textLength="30%" 
-                  lengthAdjust="spacing"
-                  >
-                    店長
-                  </text>
-          </svg>
-
-          <svg 
-            className="svg-background" 
-            viewBox="0 0 809 178" 
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path 
-              d="M0.5,0.5 H808.5 V177.5 H0.5 Z" 
-              stroke="#FFFFFF" 
-              strokeWidth="1" 
-              strokeOpacity="0.3" 
-              fill="#474747"
-            />
-            <path 
-              d="M705,135 L733,135 L719,155 Z"
-              fill="#FEA237" 
-              className="triangle animate-bounce cursor-pointer" 
-              onClick={handleClick} 
-            />
+            <text
+              className="owner font-serif"
+              x="50%"
+              y="50%"
+              textAnchor="middle"
+              dominantBaseline="middle"
+              textLength="30%"
+              lengthAdjust="spacing"
+            >
+              {step === Step.GREETING || step === Step.GREETING_CHOICE
+                ? "???"
+                : "店長"}
+            </text>
           </svg>
         </div>
 
-        <span className="displayed-text">
-          {texts[textIndex]} 
-        </span>
+        <div className="absolute w-full h-full flex justify-center items-center bg-conversation">
+          <div className="absolute right-12 bottom-6 h-[70%] animate-bounce flex flex-col justify-end">
+            <div
+              className="w-7 h-5  bg-orange "
+              style={{ clipPath: "polygon(0% 0%, 100% 0%, 50% 100%)" }}
+            ></div>
+          </div>
+
+          <span className="w-[90%] h-[85%] font-dot text-[2rem] text-orange text-left">
+            {conversation[textIndex]}
+          </span>
+        </div>
       </div>
     </div>
   );

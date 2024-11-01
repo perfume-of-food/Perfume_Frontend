@@ -7,7 +7,7 @@ export const HomeButton = () => {
     return(
      <div className="flex flex-col w-full h-full justify-around items-center p-[2px] relative space-y-[50px]">
        <div className="w-[247px] h-[87px] flex justify-center items-center relative"
-            onClick={()=>navigate("/menu")}
+            onClick={()=>navigate("/intro")}
             style = {{cursor:"pointer"}}
        >
         <svg
