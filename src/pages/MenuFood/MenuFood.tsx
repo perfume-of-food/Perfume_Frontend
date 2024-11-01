@@ -1,7 +1,7 @@
 import { SettingButton } from "../../components/SettingButton/SettingButton";
 import { DetermineButton } from "../../components/DetermineButton/DetermineButton";
 import Header from '../../components/Header/Header';
-import { Meal,MenuData } from "../../data/MenuData";
+import { MenuData } from "../../data/MenuData";
 import Menulist from "../../components/MenuList/MenuList";
 import { useState } from "react";
 
