@@ -8,6 +8,8 @@ export const Conversation = () => {
   const [textIndex, setTextIndex] = useState(0);
 
   const handleClick = () => {
+    if (step === Step.GREETING_CHOICE) return;
+    
     if (textIndex === conversation.length - 1) {
       moveToNextStep();
     }
