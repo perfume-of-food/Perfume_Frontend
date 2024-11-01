@@ -1,8 +1,7 @@
 import { SettingButton } from "../../components/SettingButton/SettingButton";
-// import { NextButton } from "./components/NextButton/NextButton";
-// import { SelectionText } from "../../components/SelectionText/SelectionText";
-import { SelectButton } from "../../components/SelectButton/SelectButton";
 import { MoodPanel } from "../../components/MoodPanel/MoodPanel";
+import { MoodDescription } from "@/components/MoodDescription/MoodDescription";
+import { DetermineButton } from "@/components/DetermineButton/DetermineButton";
 export function MoodDashboard() {
   return (
     <div className="w-screen h-screen border-x-[32px] border-y-[28px] border-black">
@@ -30,14 +29,11 @@ export function MoodDashboard() {
         </div>
         {/* 左下: 空的弹性盒子区域 */}
         <div className="row-[span_22_/_span_22] col-[span_67_/_span_67] border-r-[1px] border-orange">
-          <div className="w-full h-full flex justify-center items-center font-dot text-[1.75rem] leading-[1.5] text-beige text-opacity-60">
-            名前を入力してください
-          </div>
+          <MoodDescription />
         </div>
         {/* 右下: 选择按钮区域 */}
         <div className="row-[span_22_/_span_22] col-[span_33_/_span_33]">
-          {/* <NextButton /> */}
-          <SelectButton />
+          <DetermineButton onClick={() => {console.log("clicked")}} />
         </div>
       </div>
     </div>
