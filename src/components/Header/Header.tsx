@@ -28,24 +28,24 @@ interface HeaderProps {
     onCategorySelect: (category: string) => void;
 }
 
-const Header = ({onCategorySelect}: HeaderProps) => {
+const Header = ({ onCategorySelect }: HeaderProps) => {
     const [navs] = useState(mealsData);
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
 
     return (
         <ul className="flex w-full h-full justify-center pt-10"
-            >
-              {navs.map((nav, index) => (
+        >
+            {navs.map((nav, index) => (
                 <li key={index} className="relative flex w-[180px] h-full"
-                onMouseDown={() => setActiveIndex(index)}
-                onMouseUp={() => setActiveIndex(null)}
-                onTouchStart={() => setActiveIndex(index)}
-                onTouchEnd={() => setActiveIndex(null)}
+                    onMouseDown={() => setActiveIndex(index)}
+                    onMouseUp={() => setActiveIndex(null)}
+                    onTouchStart={() => setActiveIndex(index)}
+                    onTouchEnd={() => setActiveIndex(null)}
                 >
                     <NavLink
                         to={nav.link}
-                        onClick={() => onCategorySelect(nav.title)} 
+                        onClick={() => onCategorySelect(nav.title)}
                         className="text-white text-3xl font-serif text-center relative z-10 w-full h-full flex items-center justify-center"
                     >
                         {nav.title}
@@ -67,7 +67,7 @@ const Header = ({onCategorySelect}: HeaderProps) => {
                 </li>
             ))}
         </ul>
-    );    
+    );
 }
 
 export default Header;
