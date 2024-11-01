@@ -4,13 +4,15 @@ interface Meal {
     id: number;
     img: string;
     title: string;
+    description: string;
 }
 
 interface MenuListProps {
     meals: Meal[];
+    onMealSelect?: (description: string) => void; // Corrected name to onMealSelect
 }
 
-const Menulist = ({ meals }: MenuListProps) => {
+const Menulist = ({ meals, onMealSelect }: MenuListProps) => { // Use onMealSelect here
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const [scrollThumbPosition, setScrollThumbPosition] = useState(0);
@@ -38,6 +40,7 @@ const Menulist = ({ meals }: MenuListProps) => {
                         {/* 放svg和食物图片的框 */}
                         <div
                             className="relative w-48 h-48 flex justify-center items-center"
+                            onClick={() => onMealSelect && onMealSelect(meal.description)} // Corrected onMealSelect usage
                             onMouseDown={() => setActiveIndex(index)}
                             onMouseUp={() => setActiveIndex(null)}
                             onTouchStart={() => setActiveIndex(index)}
@@ -71,7 +74,7 @@ const Menulist = ({ meals }: MenuListProps) => {
                                 backgroundImage: 'repeating-linear-gradient(to right, #FFEFD0, #FFEFD0 10px, transparent 10px, transparent 20px)',
                             }}
                         ></div>
-                        <h5 className="text-4xl font-semibold text-white text-right ">{meal.title}</h5>
+                        <h5 className="text-4xl font-semibold text-[#FFEFD0] text-right ">{meal.title}</h5>
                     </div>
                 ))}
 
