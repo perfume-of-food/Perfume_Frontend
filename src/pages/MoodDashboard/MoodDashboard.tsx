@@ -19,7 +19,14 @@ export function MoodDashboard() {
         </div>
         {/* 中:  */}
         <div className="row-[span_71_/_span_71] col-[span_100_/span_100] border-b-[1px] border-orange">
-          <MoodPanel />
+          <div className="flex w-full h-[5rem] justify-center items-center">
+            <span className="font-serif text-4xl text-white [-webkit-text-stroke:_3px_#FEA237;] [paint-order:stroke_fill]">
+              ｜サーカムプレックス｜
+            </span>
+          </div>
+          <div className="w-full px-[2%]">
+            <MoodPanel />
+          </div>
         </div>
         {/* 左下: 空的弹性盒子区域 */}
         <div className="row-[span_22_/_span_22] col-[span_67_/_span_67] border-r-[1px] border-orange"></div>
