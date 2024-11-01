@@ -29,7 +29,11 @@ export function MoodDashboard() {
           </div>
         </div>
         {/* 左下: 空的弹性盒子区域 */}
-        <div className="row-[span_22_/_span_22] col-[span_67_/_span_67] border-r-[1px] border-orange"></div>
+        <div className="row-[span_22_/_span_22] col-[span_67_/_span_67] border-r-[1px] border-orange">
+          <div className="w-full h-full flex justify-center items-center font-dot text-[1.75rem] leading-[1.5] text-beige text-opacity-60">
+            名前を入力してください
+          </div>
+        </div>
         {/* 右下: 选择按钮区域 */}
         <div className="row-[span_22_/_span_22] col-[span_33_/_span_33]">
           {/* <NextButton /> */}
