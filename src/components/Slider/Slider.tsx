@@ -9,75 +9,42 @@ export const Slider = ({ min = 0, max = 100, defaultValue = 50 }) => {
     const rightPercentage = (value - min) / (max - min);
 
     // 将发光强度转换为0-20px范围
-    const leftGlow = Math.round(leftPercentage * 20);
-    const rightGlow = Math.round(rightPercentage * 20);
+    const leftGlow = Math.round(leftPercentage * 30);
+    const rightGlow = Math.round(rightPercentage * 30);
 
     return { left: leftGlow, right: rightGlow };
   }, [value, min, max]);
 
   return (
-    <div
-      className="w-full max-w-md mx-auto p-4"
-      style={{ background: "black" }}
-    >
-      <div className="relative pt-8">
+    <div className="relative flex flex-col items-center justify-around w-full h-full  px-[7.5%] py-[5%] ">
+      <div className="flex w-full items-center justify-between ">
         {/* 左侧标签和圆点 */}
-        <div
-          style={{
-            position: "absolute",
-            left: "0",
-            top: "0",
-            width: "24px",
-            height: "24px",
-            background: "#FEA237",
-            borderRadius: "50%",
-            boxShadow: `0 0 ${glowIntensities.left}px #FEA237`,
-            transition: "box-shadow 0.3s ease",
-          }}
-        ></div>
-        <div
-          style={{
-            position: "absolute",
-            left: "0",
-            top: "-24px",
-            fontSize: "14px",
-            color: "white",
-          }}
-        >
-          かなしい
+        <div className="flex flex-col items-center">
+          <div className="pb-4 font-dot text-3xl text-beige">かなしい</div>
+          <div
+            className="w-16 h-16 bg-[#FEA237] rounded-full"
+            style={{
+              boxShadow: `0 0 ${glowIntensities.left}px #FEA237`,
+            }}
+          ></div>
         </div>
-
         {/* 右侧标签和圆点 */}
-        <div
-          style={{
-            position: "absolute",
-            right: "0",
-            top: "0",
-            width: "24px",
-            height: "24px",
-            background: "#FEA237",
-            borderRadius: "50%",
-            boxShadow: `0 0 ${glowIntensities.right}px #FEA237`,
-            transition: "box-shadow 0.3s ease",
-          }}
-        ></div>
-        <div
-          style={{
-            position: "absolute",
-            right: "0",
-            top: "-24px",
-            fontSize: "14px",
-            color: "white",
-          }}
-        >
-          うれしい
+        <div className="flex flex-col items-center">
+          <div className="pb-4 font-dot text-3xl text-beige">うれしい</div>
+          <div
+            className=" w-16 h-16 rounded-full bg-[#FEA237]"
+            style={{
+              boxShadow: `0 0 ${glowIntensities.right}px #FEA237`,
+            }}
+          ></div>
         </div>
+      </div>
 
-        <style>{`
+      <style>{`
           input[type="range"] {
             -webkit-appearance: none;
             width: 100%;
-            height: 16px;
+            height:34px;
             background: rgba(254, 162, 55, 0.2);
             border: 2px solid #FEA237;
             border-radius: 9999px;
@@ -87,8 +54,8 @@ export const Slider = ({ min = 0, max = 100, defaultValue = 50 }) => {
 
           input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 24px;
-            height: 24px;
+            width: 40px;
+            height: 70px;
             background: #FEA237;
             background-image: 
               linear-gradient(#DA8A30, #DA8A30),
@@ -96,17 +63,16 @@ export const Slider = ({ min = 0, max = 100, defaultValue = 50 }) => {
               linear-gradient(#DA8A30, #DA8A30);
             background-repeat: no-repeat;
             background-size: 
-              12px 2px,
-              12px 2px,
-              12px 2px;
+              20px 3px,
+              20px 3px,
+              20px 3px;
             background-position: 
-              center 6px,
-              center 11px,
-              center 16px;
-            border-radius: 6px;
+              center 20px,
+              center 33px,
+              center 46px;
+            border-radius: 10px;
             cursor: pointer;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            margin-top: -4px;
           }
 
           input[type="range"]::-moz-range-thumb {
@@ -133,34 +99,24 @@ export const Slider = ({ min = 0, max = 100, defaultValue = 50 }) => {
             margin-top: -4px;
           }
 
-          input[type="range"]::-webkit-slider-runnable-track {
-            -webkit-appearance: none;
-            height: 16px;
-            border-radius: 9999px;
-          }
-
           input[type="range"]::-moz-range-track {
             height: 16px;
             border-radius: 9999px;
           }
         `}</style>
 
-        <input
-          type="range"
-          min={min}
-          max={max}
-          value={value}
-          onChange={(e) => {
-            const newValue = parseInt(e.target.value);
-            setValue(newValue);
-          }}
-          className="w-full"
-        />
+      <input
+        type="range"
+        min={min}
+        max={max}
+        value={value}
+        onChange={(e) => {
+          const newValue = parseInt(e.target.value);
+          setValue(newValue);
+        }}
+        className="w-full"
+      />
 
-        <div className="mt-4 text-center">
-          <span className="text-xl font-semibold text-[#FEA237]">{value}</span>
-        </div>
-      </div>
     </div>
   );
 };

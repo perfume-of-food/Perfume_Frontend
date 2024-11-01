@@ -26,9 +26,7 @@ export function Menu() {
         </div>
         {/* 左下: 空的弹性盒子区域 */}
         <div className="row-[span_22_/_span_22] col-[span_67_/_span_67] border-r-[1px] border-orange">
-          <div className="flex flex-col justify-around w-full h-full ">
-            <Slider />
-          </div>
+          <Slider />
         </div>
         {/* 右下: 选择按钮区域 */}
         <div className="row-[span_22_/_span_22] col-[span_33_/_span_33]">
