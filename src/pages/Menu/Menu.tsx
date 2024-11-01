@@ -2,8 +2,7 @@ import { SettingButton } from "../../components/SettingButton/SettingButton";
 // import { NextButton } from "./components/NextButton/NextButton";
 // import { SelectionText } from "../../components/SelectionText/SelectionText";
 import { SelectButton } from "../../components/SelectButton/SelectButton";
-import { Conversation } from "../../components/Conversation/Conversation";
-import { Slider } from "../../components/Slider/Slider";
+import { MoodPanel } from "../../components/MoodPanel/MoodPanel";
 export function Menu() {
   return (
     <div className="w-screen h-screen border-x-[32px] border-y-[28px] border-black">
@@ -18,16 +17,12 @@ export function Menu() {
         <div className="row-[span_7_/_span_7] col-[span_27_/_span_27] border-b-[1px] border-orange">
           <SettingButton />
         </div>
-        {/* 中上: 透明边框区域 */}
-        <div className="row-[span_50_/_span_50] col-[span_100_/_span_100]"></div>
-        {/* 中下: 对话区域 */}
-        <div className="flex items-center justify-center row-[span_21_/_span_21] col-[span_100_/span_100] border-b-[1px] border-orange">
-          <Conversation />
+        {/* 中:  */}
+        <div className="row-[span_71_/_span_71] col-[span_100_/span_100] border-b-[1px] border-orange">
+          <MoodPanel />
         </div>
         {/* 左下: 空的弹性盒子区域 */}
-        <div className="row-[span_22_/_span_22] col-[span_67_/_span_67] border-r-[1px] border-orange">
-          <Slider />
-        </div>
+        <div className="row-[span_22_/_span_22] col-[span_67_/_span_67] border-r-[1px] border-orange"></div>
         {/* 右下: 选择按钮区域 */}
         <div className="row-[span_22_/_span_22] col-[span_33_/_span_33]">
           {/* <NextButton /> */}
