@@ -2,7 +2,12 @@ import { SettingButton } from "../../components/SettingButton/SettingButton";
 import { MoodPanel } from "../../components/MoodPanel/MoodPanel";
 import { MoodDescription } from "@/components/MoodDescription/MoodDescription";
 import { DetermineButton } from "@/components/DetermineButton/DetermineButton";
+import ConfirmPanel from "@/components/ConfirmPanel/ConfirmPanel";
+import { useMoodStore } from "@/store/useMoodStore";
+import { useState } from "react";
 export function MoodDashboard() {
+  const { selectedMood, setDescriptionFlash } = useMoodStore();
+  const [showConfirmPanel, setShowConfirmPanel] = useState(false);
   return (
     <div className="w-screen h-screen border-x-[32px] border-y-[28px] border-black">
       <div className="grid grid-rows-[repeat(100,1fr)] grid-cols-[repeat(100,1fr)] w-full h-full border-[10px] border-orange bg-black">
@@ -33,9 +38,30 @@ export function MoodDashboard() {
         </div>
         {/* 右下: 选择按钮区域 */}
         <div className="row-[span_22_/_span_22] col-[span_33_/_span_33]">
-          <DetermineButton onClick={() => {console.log("clicked")}} />
+          <DetermineButton
+            onClick={() => {
+              if (selectedMood) {
+                setShowConfirmPanel(true);
+              } else {
+                setDescriptionFlash(true);
+                setTimeout(() => {
+                  setDescriptionFlash(false);
+                }, 300);
+              }
+            }}
+          />
         </div>
       </div>
+      {showConfirmPanel && (
+        <ConfirmPanel
+          title={selectedMood}
+          onClose={() => {
+            setShowConfirmPanel(false);
+          }}
+          onConfirm={() => {}}
+          showButtons={true}
+        />
+      )}
     </div>
   );
 }
