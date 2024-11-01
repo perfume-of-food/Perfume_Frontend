@@ -1,4 +1,9 @@
+import { useMoodStore } from "@/store/useMoodStore";
+import { grayscaleMoodList } from "@/constants/moods";
+
 export function MoodPanel() {
+  const { selectedMood, setSelectedMood } = useMoodStore();
+
   const centerX = 50;
   const centerY = 50;
   const radius = 35;
@@ -15,36 +20,6 @@ export function MoodPanel() {
     const textY = centerY + (radius + textOffset) * Math.sin(angle);
     return { x, y, textX, textY, angle };
   });
-
-  const onAxisColor = "#000000";
-  const offAxisColor = "#808080";
-
-  const moodList = [
-    { id: 1, name: "Ecstatic", color: onAxisColor }, // 最强烈的快乐
-    { id: 2, name: "Excited", color: offAxisColor }, // 兴奋
-    { id: 3, name: "Happy", color: offAxisColor }, // 快乐
-    { id: 4, name: "Pleasant", color: offAxisColor }, // 愉悦
-    { id: 5, name: "Relaxed", color: offAxisColor }, // 放松
-    { id: 6, name: "Calm", color: offAxisColor }, // 平静
-    { id: 7, name: "Content", color: onAxisColor }, // 满足
-    { id: 8, name: "Peaceful", color: offAxisColor }, // 安详
-    { id: 9, name: "Bored", color: offAxisColor }, // 无聊
-    { id: 10, name: "Tired", color: offAxisColor }, // 疲倦
-    { id: 11, name: "Confused", color: offAxisColor }, // 困惑
-    { id: 12, name: "Worried", color: offAxisColor }, // 担忧
-    { id: 13, name: "Anxious", color: onAxisColor }, // 焦虑
-    { id: 14, name: "Nervous", color: offAxisColor }, // 紧张
-    { id: 15, name: "Scared", color: offAxisColor }, // 害怕
-    { id: 16, name: "Fearful", color: offAxisColor }, // 恐惧
-    { id: 17, name: "Depressed", color: offAxisColor }, // 沮丧
-    { id: 18, name: "Suffering", color: offAxisColor }, // 痛苦
-    { id: 19, name: "Sad", color: onAxisColor }, // 悲伤
-    { id: 20, name: "Angry", color: offAxisColor }, // 愤怒
-    { id: 21, name: "Furious", color: offAxisColor }, // 暴怒
-    { id: 22, name: "Disgusted", color: offAxisColor }, // 厌恶
-    { id: 23, name: "Ashamed", color: offAxisColor }, // 羞愧
-    { id: 24, name: "Guilty", color: offAxisColor }, // 内疚
-  ];
 
   return (
     <div className="w-full h-full flex items-center justify-center bg-white">
@@ -89,20 +64,32 @@ export function MoodPanel() {
             return (
               <g key={index}>
                 <circle
+                  className="cursor-pointer transition-colors duration-200"
                   cx={point.x}
                   cy={point.y}
                   r="1"
-                  fill={moodList[index].color}
+                  fill={
+                    selectedMood === grayscaleMoodList[index].name
+                      ? "#FEA237"
+                      : grayscaleMoodList[index].color
+                  }
+                  onClick={() => setSelectedMood(grayscaleMoodList[index].name)}
                 />
                 <text
+                  className="font-dot cursor-pointer transition-colors duration-200"
                   x={point.textX}
                   y={point.textY}
-                  fontSize="2"
+                  fill={
+                    selectedMood === grayscaleMoodList[index].name
+                      ? "#FEA237"
+                      : grayscaleMoodList[index].color
+                  }
+                  fontSize="2.5"
                   textAnchor={textAnchor}
                   dominantBaseline="middle"
-                  fill={moodList[index].color}
+                  onClick={() => setSelectedMood(grayscaleMoodList[index].name)}
                 >
-                  {moodList[index].name}
+                  {grayscaleMoodList[index].name}
                 </text>
               </g>
             );
