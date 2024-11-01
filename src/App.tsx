@@ -1,14 +1,14 @@
 import "./App.css";
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-import { Home } from '@/pages/Home/Home';
-import { Menu } from '@/pages/Menu/Menu';
-import { MoodDashboard } from '@/pages/MoodDashboard/MoodDashboard';
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { Cover } from "@/pages/Cover/Cover";
+import { Menu } from "@/pages/Menu/Menu";
+import { MoodDashboard } from "@/pages/MoodDashboard/MoodDashboard";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Cover />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/mood-dashboard" element={<MoodDashboard />} />
       </Routes>
@@ -17,4 +17,3 @@ function App() {
 }
 
 export default App;
-

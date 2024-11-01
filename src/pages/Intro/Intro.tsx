@@ -1,6 +1,4 @@
 import { SettingButton } from "../../components/SettingButton/SettingButton";
-// import { NextButton } from "./components/NextButton/NextButton";
-// import { SelectionText } from "../../components/SelectionText/SelectionText";
 import { SelectButton } from "../../components/SelectButton/SelectButton";
 import { MenuHero } from "../../components/MenuHero/MenuHero";
 export function Menu() {
