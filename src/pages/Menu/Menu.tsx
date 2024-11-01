@@ -3,7 +3,7 @@ import { SettingButton } from "../../components/SettingButton/SettingButton";
 // import { SelectionText } from "../../components/SelectionText/SelectionText";
 import { SelectButton } from "../../components/SelectButton/SelectButton";
 import { Conversation } from "../../components/Conversation/Conversation";
-
+import { Slider } from "../../components/Slider/Slider";
 export function Menu() {
   return (
     <div className="w-screen h-screen border-x-[32px] border-y-[28px] border-black">
@@ -27,7 +27,7 @@ export function Menu() {
         {/* 左下: 空的弹性盒子区域 */}
         <div className="row-[span_22_/_span_22] col-[span_67_/_span_67] border-r-[1px] border-orange">
           <div className="flex flex-col justify-around w-full h-full ">
-            
+            <Slider />
           </div>
         </div>
         {/* 右下: 选择按钮区域 */}
