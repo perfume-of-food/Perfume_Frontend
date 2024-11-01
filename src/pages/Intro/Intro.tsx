@@ -66,7 +66,7 @@ export function Intro() {
           }}
           onConfirm={() => {
             console.log(userName);
-            navigate("/mood-dashboard");
+            navigate("/mood-selection");
           }}
         />
       )}
