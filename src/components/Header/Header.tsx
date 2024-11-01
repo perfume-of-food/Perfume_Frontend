@@ -46,7 +46,7 @@ const Header = ({ onCategorySelect }: HeaderProps) => {
                     <NavLink
                         to={nav.link}
                         onClick={() => onCategorySelect(nav.title)}
-                        className="text-white text-3xl font-serif text-center relative z-10 w-full h-full flex items-center justify-center"
+                        className="text-white [-webkit-text-stroke:_0.6px_#FEA237;] [paint-order:stroke fill] text-3xl font-serif text-center relative z-10 w-full h-full flex items-center justify-center"
                     >
                         {nav.title}
                     </NavLink>

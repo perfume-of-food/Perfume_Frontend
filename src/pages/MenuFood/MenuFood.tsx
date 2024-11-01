@@ -5,15 +5,31 @@ import Header from '../../components/Header/Header';
 import { MenuData } from "../../data/MenuData";
 import Menulist from "../../components/MenuList/MenuList";
 import MealDescription from "../../components/MealDescription/MealDescription";
+import ConfirmPanel from "../../components/ConfirmPanel/ConfirmPanel";
 
 export function MenuFood() {
   const [selectedCategory, setSelectedCategory] = useState<string>("おすすめ");
-  const [selectedMealDescription, setSelectedMealDescription] = useState<string | null>(null);
+  const [selectedMeal, setSelectedMeal] = useState<{ title: string; description: string } | null>(null);
+  const [showConfirmPanel, setShowConfirmPanel] = useState<boolean>(false);
+  const [confirmMessageOnly, setConfirmMessageOnly] = useState<boolean>(false);
 
   const filteredMeals = MenuData.filter((meal) => {
-    if (selectedCategory === "おすすめ") return true; // Show all meals for "おすすめ"
+    if (selectedCategory === "おすすめ") return true;
     return meal.category === selectedCategory;
   });
+
+  const handleMealSelect = (description: string, title: string) => {
+    setSelectedMeal({ title, description });
+  };
+
+  const handleDetermineButtonClick = () => {
+    if (!selectedMeal) {
+      setConfirmMessageOnly(true); // Show message only
+    } else {
+      setConfirmMessageOnly(false); // Show confirmation buttons
+    }
+    setShowConfirmPanel(true);
+  };
 
   return (
     <div className="w-screen h-screen border-x-[32px] border-y-[28px] border-black">
@@ -30,8 +46,10 @@ export function MenuFood() {
           <Header onCategorySelect={setSelectedCategory} />
         </div>
         <div className="row-[span_60_/_span_60] col-[span_67_/_span_67] border-r-[1px] border-b-[1px] border-orange h-full overflow-y-scroll">
-          {/* Pass onMealSelect to allow description updates on click */}
-          <Menulist meals={filteredMeals} onMealSelect={(description) => setSelectedMealDescription(description)} />
+          <Menulist
+            meals={filteredMeals}
+            onMealSelect={(description, title) => handleMealSelect(description, title)}
+          />
         </div>
         <div className="relative row-[span_60_/_span_60] col-[span_33_/_span_33] border-b-[1px] border-orange">
           <div className="flex justify-center items-end h-full">
@@ -43,12 +61,22 @@ export function MenuFood() {
           </div>
         </div>
         <div className="row-[span_22_/_span_22] col-[span_67_/_span_67] border-r-[1px] border-orange">
-          <MealDescription description={selectedMealDescription} />
+          <MealDescription description={selectedMeal?.description || null} />
         </div>
         <div className="row-[span_22_/_span_22] col-[span_33_/_span_33]">
-          <DetermineButton />
+          <DetermineButton onClick={handleDetermineButtonClick} />
         </div>
       </div>
+      
+      {/* Confirm Panel Modal */}
+      {showConfirmPanel && (
+        <ConfirmPanel
+          title={confirmMessageOnly ? "请选择您想要的食物" : selectedMeal?.title || ""}
+          onClose={() => setShowConfirmPanel(false)}
+          onConfirm={() => setShowConfirmPanel(false)}
+          showButtons={!confirmMessageOnly}
+        />
+      )}
     </div>
   );
 }
