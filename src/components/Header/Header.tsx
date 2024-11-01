@@ -24,16 +24,20 @@ const mealsData = [
     },
 ];
 
-const Header = () => {
+interface HeaderProps {
+    onCategorySelect: (category: string) => void;
+}
+
+const Header = ({onCategorySelect}: HeaderProps) => {
     const [navs] = useState(mealsData);
-    console.log("Header rendered");
 
     return (
         <ul className="flex w-full h-full justify-center pt-10">
-            {navs.map((nav, index) => (
+              {navs.map((nav, index) => (
                 <li key={index} className="relative flex w-[180px] h-full">
                     <NavLink
                         to={nav.link}
+                        onClick={() => onCategorySelect(nav.title)} 
                         className="text-white text-4xl font-serif text-center relative z-10 w-full h-full flex items-center justify-center"
                     >
                         {nav.title}

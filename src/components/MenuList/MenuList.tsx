@@ -14,8 +14,9 @@ interface MenuListProps {
 
 
 const Menulist = ({ meals }:MenuListProps) => {
+  console.log("Meals in Menulist:", meals);
   const [activeIndex, setActiveIndex] = useState< number | null> (null);
-
+  
   return (
     <div className="meal-container flex flex-col items-start p-4 overflow-y-scroll h-full">
       {meals.map((meal, index) => (

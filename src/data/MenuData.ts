@@ -3,6 +3,7 @@ export interface Meal {
     title: string;
     img: string;
     description: string;
+    category:string;
   }
   
   export const MenuData: Meal[] = [
@@ -11,6 +12,7 @@ export interface Meal {
     img:'./src/statics/food/pineapple_shaved_ice.png',
     description:'在这里替换掉你想要的形容',
     id: 1,
+    category:'デザート',
 },
 
 {
@@ -18,6 +20,7 @@ export interface Meal {
     img:'./src/statics/food/strawberry_icecream.png',
     description:'在这里替换掉你想要的形容',
     id: 2,
+    category:'デザート',
 },
 
 {
@@ -25,6 +28,7 @@ export interface Meal {
     img:'./src/statics/food/chocolate.png',
     description:'在这里替换掉你想要的形容',
     id: 3,
+    category:'デザート',
 },
 
 {
@@ -32,6 +36,7 @@ export interface Meal {
     img:'./src/statics/food/vanilla_cake.png',
     description:'「香草蛋糕」：一片奶油蛋糕，上面点缀着樱桃。散发出黄油和面粉的甜味，脸上浮现出幸福的微笑。',
     id: 4,
+    category:'デザート',
 },
 
 ]

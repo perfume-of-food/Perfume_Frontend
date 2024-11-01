@@ -11,6 +11,11 @@ function App() {
         <Route path="/" element={<MenuFood />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/menufood" element={<Home />} />
+        <Route path="/desert" element={<MenuFood />} />
+        <Route path="/drink" element={<MenuFood />} />
+        <Route path="/snacks" element={<MenuFood />} />
+        <Route path="/others" element={<MenuFood />} />
+
       </Routes>
     </Router>
   );
