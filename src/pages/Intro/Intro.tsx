@@ -11,13 +11,10 @@ import { GreetingChoice } from "@/components/GreetingChoice/GreetingChoice";
 import { useState } from "react";
 import { InputPanel } from "@/components/InputPanel/InputPanel";
 
-import { useNavigate } from "react-router-dom";
-
 export function Intro() {
   const { step, moveToNextStep } = useIntroStore();
 
   const [showInputPanel, setShowInputPanel] = useState(false);
-  const navigate = useNavigate();
   return (
     <div className="w-screen h-screen border-x-[32px] border-y-[28px] border-black">
       <div className="grid grid-rows-[repeat(100,1fr)] grid-cols-[repeat(100,1fr)] w-full h-full border-[10px] border-orange bg-black">
