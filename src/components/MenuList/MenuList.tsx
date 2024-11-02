@@ -1,4 +1,4 @@
-import { MenuData } from "@/data/MenuData";
+import { MenuData } from "@/constants/MenuData";
 
 import { useMoodMenuStore } from "@/stores/useMoodMenuStore";
 const Menulist = () => {
