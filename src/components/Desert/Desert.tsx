@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Header from '../../components/Header/Header';
-import Menulist from "../../components/MenuList/MenuList";
-import { MenuData } from "../../data/MenuData";
+import Header from '@//components/Header/Header';
+import Menulist from "@//components/MenuList/MenuList";
+import { MenuData } from "@//data/MenuData";
 
 const Desert = () => {
     const [selectedCategory, setSelectedCategory] = useState('デザート');

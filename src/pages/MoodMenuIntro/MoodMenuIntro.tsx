@@ -1,5 +1,5 @@
-import { SettingButton } from "../../components/SettingButton/SettingButton";
-import { MenuHero } from "../../components/MenuHero/MenuHero";
+import { SettingButton } from "@//components/SettingButton/SettingButton";
+import { MenuHero } from "@//components/MenuHero/MenuHero";
 import { Conversation } from "@/components/Conversation/Conversation";
 import { HintText } from "@/components/HintText/HintText";
 

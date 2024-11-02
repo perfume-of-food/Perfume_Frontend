@@ -15,6 +15,7 @@ import { useEffect } from "react";
 import { SurveyPage } from "./components/SurveyPage/SurveyPage";
 import { MoodMenu } from "./pages/MoodMenu/MoodMenu";
 import { MoodMenuIntro } from "./pages/MoodMenuIntro/MoodMenuIntro";
+import { WaitingPage } from "./pages/WaitingPage/WaitingPage";
 
 function AppRoutes() {
   const { step } = useIntroStore();
@@ -34,6 +35,9 @@ function AppRoutes() {
       case Step.MOOD_MENU:
         navigate("/mood-menu");
         break;
+      case Step.WAITING_BACKEND:
+        navigate("/waiting-backend");
+        break;
     }
   }, [step, navigate]);
 
@@ -50,6 +54,7 @@ function AppRoutes() {
       <Route path="/snacks" element={<MoodMenu />} />
       <Route path="/others" element={<MoodMenu />} />
       <Route path="/survey" element={<SurveyPage />} />
+      <Route path="/waiting-backend" element={<WaitingPage />} />
     </Routes>
   );
 }

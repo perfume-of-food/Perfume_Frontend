@@ -1,4 +1,4 @@
-import { HomeButton } from "../../components/HomeButton/HomeButton";
+import { HomeButton } from "@//components/HomeButton/HomeButton";
 
 export function Cover() {
   return (

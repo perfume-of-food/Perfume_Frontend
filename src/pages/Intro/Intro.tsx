@@ -1,11 +1,11 @@
-import { SettingButton } from "../../components/SettingButton/SettingButton";
-import { GreetingChoiceButton } from "../../components/GreetingChoiceButton/GreetingChoiceButton";
-import { MenuHero } from "../../components/MenuHero/MenuHero";
-import { Conversation } from "../../components/Conversation/Conversation";
+import { SettingButton } from "@//components/SettingButton/SettingButton";
+import { GreetingChoiceButton } from "@//components/GreetingChoiceButton/GreetingChoiceButton";
+import { MenuHero } from "@//components/MenuHero/MenuHero";
+import { Conversation } from "@//components/Conversation/Conversation";
 import { HintText } from "@/components/HintText/HintText";
 import { NameEntryButton } from "@/components/NameEntryButton/NameEntryButton";
 
-import { useIntroStore } from "../../stores/useIntroStore";
+import { useIntroStore } from "@//stores/useIntroStore";
 import { Step } from "@/types/steps";
 import { GreetingChoice } from "@/components/GreetingChoice/GreetingChoice";
 import { useState } from "react";

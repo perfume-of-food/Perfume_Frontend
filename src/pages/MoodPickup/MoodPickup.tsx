@@ -3,7 +3,7 @@ import { MoodPanel } from "@/components/MoodPanel/MoodPanel";
 import { MoodDescription } from "@/components/MoodDescription/MoodDescription";
 import { DetermineButton } from "@/components/DetermineButton/DetermineButton";
 import ConfirmPanel from "@/components/ConfirmPanel/ConfirmPanel";
-import { useMoodStore } from "@/store/useMoodStore";
+import { useMoodStore } from "@/stores/useMoodStore";
 import { useState } from "react";
 import { useIntroStore } from "@/stores/useIntroStore";
 export function MoodPickup() {

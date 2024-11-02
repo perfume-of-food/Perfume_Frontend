@@ -1,4 +1,4 @@
-import { useMoodStore } from "@/store/useMoodStore";
+import { useMoodStore } from "@/stores/useMoodStore";
 import { grayscaleMoodList } from "@/constants/moods";
 
 export function MoodPanel() {

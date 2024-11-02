@@ -13,7 +13,6 @@ interface IntroState {
   };
   setStep: (step: Step) => void;
   moveToNextStep: () => void;
-  setConversationIndex: (index: number) => void;
   getCurrentStepMessages: (step: Step) => string[];
   userName: string;
   setUserName: (userName: string) => void;
@@ -37,10 +36,6 @@ export const useIntroStore = create<IntroState>((set, get) => ({
       const next = getNextStep(state.step);
       return next ? { step: next } : {};
     }),
-  setConversationIndex: (index) =>
-    set((state) => ({
-      conversation: { ...state.conversation, currentIndex: index },
-    })),
   getCurrentStepMessages: (step) => {
     const range = stepMessageRanges[step];
     return range ? introConversation.slice(range.start, range.end + 1) : [];

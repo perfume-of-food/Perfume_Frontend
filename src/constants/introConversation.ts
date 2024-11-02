@@ -40,6 +40,7 @@ export const stepMessageRanges: Record<Step, { start: number; end: number }> = {
   [Step.MOOD_PICKUP_PANEL]: { start: 0, end: 0 }, // 示例
   [Step.MOOD_MENU_INTRO]: { start: 19, end: 21 }, // 示例
   [Step.MOOD_MENU]: { start: 0, end: 0 }, // 示例
+  [Step.WAITING_BACKEND]: { start: 0, end: 0 }, // 示例
 };
 
 // // 或者更简单的方式，只记录每个步骤的起始索引
