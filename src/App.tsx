@@ -12,6 +12,7 @@ function App() {
         <Route path="/" element={<Cover />} />
         <Route path="/intro" element={<Intro />} />
         <Route path="/mood-selection" element={<MoodSelection />} />
+        <Route path="/menufood" element={<MenuFood />} />
         <Route path="/desert" element={<MenuFood />} />
         <Route path="/drink" element={<MenuFood />} />
         <Route path="/snacks" element={<MenuFood />} />
