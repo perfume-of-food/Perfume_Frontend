@@ -1,36 +1,68 @@
 import "./App.css";
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import {
+  HashRouter as Router,
+  Route,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
 import { Cover } from "@/pages/Cover/Cover";
 import { Intro } from "@/pages/Intro/Intro";
-import { MoodSelection } from "@/pages/MoodSelection/MoodSelection";
-import { MenuFood } from './pages/MenuFood/MenuFood';
-import { LoadingPage } from "@/components/LoadingPage/LaodingPage"
-import { useEffect, useState } from 'react';
-import { SurveyPage } from '@/components/SurveyPage/SurveyPage'
-function App() {
-  const [isLoading, setIsLoading] = useState(true);
+import { MoodRecommendation } from "@/pages/MoodRecommendation/MoodRecommendation";
+import { MoodPickup } from "./pages/MoodPickup/MoodPickup";
+import { useIntroStore } from "./stores/useIntroStore";
+import { Step } from "./types/steps";
+import { useEffect } from "react";
+import { SurveyPage } from "./components/SurveyPage/SurveyPage";
+import { MoodMenu } from "./pages/MoodMenu/MoodMenu";
+import { MoodMenuIntro } from "./pages/MoodMenuIntro/MoodMenuIntro";
+import { WaitingPage } from "./pages/WaitingPage/WaitingPage";
+
+function AppRoutes() {
+  const { step } = useIntroStore();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    setIsLoading(false);
-  }, []);
-
-  if (isLoading) {
-    return <LoadingPage />;
-  }
+    switch (step) {
+      case Step.MOOD_INTRO:
+        navigate("/mood-recommendation");
+        break;
+      case Step.MOOD_PICKUP_PANEL:
+        navigate("/mood-pickup");
+        break;
+      case Step.MOOD_MENU_INTRO:
+        navigate("/mood-menu-intro");
+        break;
+      case Step.MOOD_MENU:
+        navigate("/mood-menu");
+        break;
+      case Step.WAITING_BACKEND:
+        navigate("/waiting-backend");
+        break;
+    }
+  }, [step, navigate]);
 
   return (
+    <Routes>
+      <Route path="/" element={<Cover />} />
+      <Route path="/intro" element={<Intro />} />
+      <Route path="/mood-recommendation" element={<MoodRecommendation />} />
+      <Route path="/mood-pickup" element={<MoodPickup />} />
+      <Route path="/mood-menu-intro" element={<MoodMenuIntro />} />
+      <Route path="/mood-menu" element={<MoodMenu />} />
+      <Route path="/desert" element={<MoodMenu />} />
+      <Route path="/drink" element={<MoodMenu />} />
+      <Route path="/snacks" element={<MoodMenu />} />
+      <Route path="/others" element={<MoodMenu />} />
+      <Route path="/survey" element={<SurveyPage />} />
+      <Route path="/waiting-backend" element={<WaitingPage />} />
+    </Routes>
+  );
+}
+
+function App() {
+  return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Cover />} />
-        <Route path="/intro" element={<Intro />} />
-        <Route path="/mood-selection" element={<MoodSelection />} />
-        <Route path="/menufood" element={<MenuFood />} />
-        <Route path="/desert" element={<MenuFood />} />
-        <Route path="/drink" element={<MenuFood />} />
-        <Route path="/snacks" element={<MenuFood />} />
-        <Route path="/others" element={<MenuFood />} />
-        <Route path="/survey" element={<SurveyPage />} />
-      </Routes>
+      <AppRoutes />
     </Router>
   );
 }

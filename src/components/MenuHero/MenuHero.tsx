@@ -1,6 +1,6 @@
-import owl from "../../assets/owl.png";
-import plane from "../../assets/plane.png";
-import receipt from "../../assets/receipt.png";
+import owl from "@//assets/owl.png";
+import plane from "@//assets/plane.png";
+import receipt from "@//assets/receipt.png";
 
 export function MenuHero() {
   return (

@@ -1,4 +1,4 @@
-import { useMoodStore } from "@/store/useMoodStore";
+import { useMoodStore } from "@/stores/useMoodStore";
 import { grayscaleMoodList } from "@/constants/moods";
 
 export const MoodDescription = () => {
@@ -20,8 +20,7 @@ export const MoodDescription = () => {
             }
           `}
         </style>
-        {grayscaleMoodList.find((mood) => mood.name === selectedMood)?.desc ??
-          "感情を一つ選択してください"}
+        {selectedMood && `[${selectedMood}]: ${grayscaleMoodList.find((mood) => mood.name === selectedMood)?.desc ?? ''}`}
       </span>
     </div>
   );
