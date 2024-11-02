@@ -7,6 +7,7 @@ import Menulist from "../../components/MenuList/MenuList";
 import MealDescription from "../../components/MealDescription/MealDescription";
 import ConfirmPanel from "../../components/ConfirmPanel/ConfirmPanel";
 import { LoadingPage } from "@/components/LoadingPage/LaodingPage"
+import  owl_stick  from "@/assets/owl_stick.png"
 
 export function MoodMenu() {
   const [selectedCategory, setSelectedCategory] = useState<string>("おすすめ");
@@ -61,7 +62,7 @@ export function MoodMenu() {
         <div className="relative row-[span_60_/_span_60] col-[span_33_/_span_33] border-b-[1px] border-orange">
           <div className="flex justify-center items-end h-full">
             <img
-              src="/owl.png"
+              src={owl_stick}
               alt="Owl"
               className="w-full h-58% object-cover"
             />
