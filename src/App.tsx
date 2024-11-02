@@ -11,7 +11,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Remove the loading page immediately after mount
     setIsLoading(false);
   }, []);
 
