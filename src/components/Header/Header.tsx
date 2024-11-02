@@ -5,7 +5,7 @@ const mealsData = [
     { title: 'おすすめ', link: '/mood-menu' },
     { title: 'デザート', link: '/desert' },
     { title: '飲み物', link: '/drink' },
-    { title: 'おつまみ', link: '/snacks' },
+    { title: '一品料理', link: '/snacks' },
     { title: 'その他', link: '/others' },
 ];
 
