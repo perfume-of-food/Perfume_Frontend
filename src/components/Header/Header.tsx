@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const mealsData = [
-    { title: 'おすすめ', link: '/menufood' },
+    { title: 'おすすめ', link: '/mood-menu' },
     { title: 'デザート', link: '/desert' },
     { title: '飲み物', link: '/drink' },
     { title: 'おつまみ', link: '/snacks' },
