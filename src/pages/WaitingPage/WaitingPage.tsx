@@ -1,19 +1,9 @@
 import { SettingButton } from "@/components/SettingButton/SettingButton";
 import plane from "@/assets/plane.png";
 import receipt from "@/assets/receipt.png";
-import { useState, useEffect } from "react";
+import styles from "./WaitingPage.module.css";
 
 export function WaitingPage() {
-  const [dots, setDots] = useState("");
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDots((prevDots) => (prevDots.length < 3 ? prevDots + "．" : ""));
-    }, 500); // 每隔 500ms 添加一个点
-
-    return () => clearInterval(interval); // 清除 interval
-  }, []);
-
   return (
     <div className="w-screen h-screen border-x-[32px] border-y-[28px] border-black">
       <div className="grid grid-rows-[repeat(100,1fr)] grid-cols-[repeat(100,1fr)] w-full h-full border-[10px] border-orange bg-black relative">
@@ -42,7 +32,9 @@ export function WaitingPage() {
               料理を準備中です。
               <br />
               しばらくお待ちください
-              <span className="inline-block w-8 text-center">{dots}</span>
+              <span className="absolute">
+                <span className={styles["loading-dots"]}></span>
+              </span>
             </div>
             {/* 下边框 */}
             <div
