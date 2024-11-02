@@ -5,9 +5,12 @@ import { DetermineButton } from "@/components/DetermineButton/DetermineButton";
 import ConfirmPanel from "@/components/ConfirmPanel/ConfirmPanel";
 import { useMoodStore } from "@/store/useMoodStore";
 import { useState } from "react";
-export function MoodDashboard() {
+import { useIntroStore } from "@/stores/useIntroStore";
+export function MoodPickup() {
+  const { moveToNextStep } = useIntroStore();
   const { selectedMood, setDescriptionFlash } = useMoodStore();
   const [showConfirmPanel, setShowConfirmPanel] = useState(false);
+
   return (
     <div className="w-screen h-screen border-x-[32px] border-y-[28px] border-black">
       <div className="grid grid-rows-[repeat(100,1fr)] grid-cols-[repeat(100,1fr)] w-full h-full border-[10px] border-orange bg-black">
@@ -58,7 +61,9 @@ export function MoodDashboard() {
           onClose={() => {
             setShowConfirmPanel(false);
           }}
-          onConfirm={() => {}}
+          onConfirm={() => {
+            moveToNextStep();
+          }}
           showButtons={true}
         />
       )}

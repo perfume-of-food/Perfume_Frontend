@@ -1,42 +1,49 @@
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
+import hageshi from "@/assets/hageshi.png";
+import heitan from "@/assets/heitan.png";
+import { useIntroStore } from "@/stores/useIntroStore";
 
-export const Slider = ({ min = 0, max = 100, defaultValue = 50 }) => {
-  const [value, setValue] = useState(defaultValue);
+export const EmotionSlider = ({ min = 0, max = 100 }) => {
+  const { emotionValue, setEmotionValue } = useIntroStore();
 
   // 计算两侧光晕强度
   const glowIntensities = useMemo(() => {
-    const leftPercentage = (max - value) / (max - min);
-    const rightPercentage = (value - min) / (max - min);
+    const leftPercentage = (max - emotionValue) / (max - min);
+    const rightPercentage = (emotionValue - min) / (max - min);
 
     // 将发光强度转换为0-20px范围
     const leftGlow = Math.round(leftPercentage * 30);
     const rightGlow = Math.round(rightPercentage * 30);
 
     return { left: leftGlow, right: rightGlow };
-  }, [value, min, max]);
+  }, [emotionValue, min, max]);
 
   return (
     <div className="relative flex flex-col items-center justify-around w-full h-full  px-[7.5%] py-[5%] ">
       <div className="flex w-full items-center justify-between ">
         {/* 左侧标签和圆点 */}
         <div className="flex flex-col items-center">
-          <div className="pb-4 font-dot text-3xl text-beige">かなしい</div>
+          <div className="pb-4 font-dot text-3xl text-beige">へいたん</div>
           <div
             className="w-16 h-16 bg-[#FEA237] rounded-full"
             style={{
               boxShadow: `0 0 ${glowIntensities.left}px #FEA237`,
             }}
-          ></div>
+          >
+            <img src={heitan} alt="heitan" />
+          </div>
         </div>
         {/* 右侧标签和圆点 */}
         <div className="flex flex-col items-center">
-          <div className="pb-4 font-dot text-3xl text-beige">うれしい</div>
+          <div className="pb-4 font-dot text-3xl text-beige">はげしい</div>
           <div
             className=" w-16 h-16 rounded-full bg-[#FEA237]"
             style={{
               boxShadow: `0 0 ${glowIntensities.right}px #FEA237`,
             }}
-          ></div>
+          >
+            <img src={hageshi} alt="hageshi" />
+          </div>
         </div>
       </div>
 
@@ -109,14 +116,13 @@ export const Slider = ({ min = 0, max = 100, defaultValue = 50 }) => {
         type="range"
         min={min}
         max={max}
-        value={value}
+        value={emotionValue}
         onChange={(e) => {
           const newValue = parseInt(e.target.value);
-          setValue(newValue);
+          setEmotionValue(newValue);
         }}
         className="w-full"
       />
-
     </div>
   );
 };

@@ -2,19 +2,35 @@ import { useState } from "react";
 import "./Conversation.css";
 import { useIntroStore } from "@/stores/useIntroStore";
 import { Step } from "@/types/steps";
+import { formatMessage } from "@/utils/textUtils";
 export const Conversation = () => {
-  const { step, getCurrentStepMessages, moveToNextStep } = useIntroStore();
+  const {
+    step,
+    getCurrentStepMessages,
+    moveToNextStep,
+    userName,
+    getRecommendedMood,
+    getRecommendedMoodDescription,
+  } = useIntroStore();
   const conversation = getCurrentStepMessages(step);
   const [textIndex, setTextIndex] = useState(0);
 
   const handleClick = () => {
-    if (step === Step.GREETING_CHOICE) return;
-    
+    if (
+      step === Step.GREETING_CHOICE ||
+      step === Step.NAME_ENTRY ||
+      step === Step.MOOD_SLIDER_FIRST ||
+      step === Step.MOOD_SLIDER_SECOND ||
+      step === Step.MOOD_CONFIRMATION
+    )
+      return;
+
     if (textIndex === conversation.length - 1) {
       moveToNextStep();
     }
     const nextIndex = (textIndex + 1) % conversation.length;
     setTextIndex(nextIndex);
+    console.log(step);
   };
 
   return (
@@ -59,7 +75,12 @@ export const Conversation = () => {
           </div>
 
           <span className="w-[90%] h-[85%] font-dot text-[2rem] text-orange text-left">
-            {conversation[textIndex]}
+            {conversation[textIndex] &&
+              formatMessage(conversation[textIndex], {
+                userName,
+                recommendedMood: getRecommendedMood(),
+                recommendedMoodDescription: getRecommendedMoodDescription(),
+            })}
           </span>
         </div>
       </div>
