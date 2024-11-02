@@ -1,23 +1,25 @@
-import "./HomeButton.css";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
+interface GreetingChoiceButtonProps {
+  onClick: () => void;
+}
 
-export const HomeButton = () => {
-  const navigate = useNavigate();
+export const GreetingChoiceButton = ({
+  onClick,
+}: GreetingChoiceButtonProps) => {
   const [isStartPressed, setIsStartPressed] = useState(false);
   const [isUsagePressed, setIsUsagePressed] = useState(false);
 
-    return(
-     <div className="flex flex-col w-full h-full justify-around items-center p-[2px] relative space-y-[50px]">
-       <div className="w-[247px] h-[87px] flex justify-center items-center relative"
-            onClick={()=>navigate("/intro")}
-            style = {{cursor:"pointer"}}
-            onMouseDown={() => setIsStartPressed(true)}
-            onMouseUp={() => setIsStartPressed(false)}
-            onTouchStart={() => setIsStartPressed(true)}
-            onTouchEnd={() => setIsStartPressed(false)}
-       >
+  return (
+    <div className="flex flex-col w-full h-full justify-around items-center p-[2px] relative">
+      <div
+        className="w-[70%] h-[30%] flex justify-center items-center relative group"
+        onClick={onClick}
+        onMouseDown={() => setIsStartPressed(true)}
+        onMouseUp={() => setIsStartPressed(false)}
+        onTouchStart={() => setIsStartPressed(true)}
+        onTouchEnd={() => setIsStartPressed(false)}
+      >
         <svg
           className="w-full h-full"
           preserveAspectRatio="none"
@@ -33,17 +35,18 @@ export const HomeButton = () => {
           />
         </svg>
 
-        <span className="button-text">
-          スタート
+        <span className="text-white text-4xl font-dot inline-block absolute  text-center [-webkit-text-stroke:_2px_#FEA237;] [paint-order:stroke_fill] pointer-events-none">
+          1にする
         </span>
-
-        </div>
-        <div className="w-[247px] h-[87px] flex justify-center items-center relative"
+      </div>
+      <div
+        className="w-[70%] h-[30%] flex justify-center items-center relative group"
+        onClick={onClick}
         onMouseDown={() => setIsUsagePressed(true)}
         onMouseUp={() => setIsUsagePressed(false)}
         onTouchStart={() => setIsUsagePressed(true)}
         onTouchEnd={() => setIsUsagePressed(false)}
-        >
+      >
         <svg
           className="w-full h-full"
           preserveAspectRatio="none"
@@ -58,11 +61,10 @@ export const HomeButton = () => {
             stroke="#FEA237"
           />
         </svg>
-        <span className="button-text">
-          使用説明
+        <span className="text-white text-4xl font-dot inline-block absolute  text-center [-webkit-text-stroke:_2px_#FEA237;] [paint-order:stroke_fill] pointer-events-none">
+          2にする
         </span>
-        </div>
+      </div>
     </div>
-
-    );
+  );
 };

@@ -6,12 +6,13 @@ export default {
     fontFamily: {
       serif: ["YuMincho", "Yu Mincho"],
       playfair: ["Playfair Display SC Regular"],
-      dot:["DotGothic16 Regular"]
+      dot: ["DotGothic16 Regular"],
     },
     extend: {
       colors: {
         orange: "#FEA237",
         beige: "#FFEFD0",
+        conversation: "#474747",
       },
     },
   },
