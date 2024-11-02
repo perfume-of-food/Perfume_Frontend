@@ -6,7 +6,7 @@ import { MoodSelection } from "@/pages/MoodSelection/MoodSelection";
 import { MenuFood } from './pages/MenuFood/MenuFood';
 import { LoadingPage } from "@/components/LoadingPage/LaodingPage"
 import { useEffect, useState } from 'react';
-
+import { SurveyPage } from '@/components/SurveyPage/SurveyPage'
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,6 +29,7 @@ function App() {
         <Route path="/drink" element={<MenuFood />} />
         <Route path="/snacks" element={<MenuFood />} />
         <Route path="/others" element={<MenuFood />} />
+        <Route path="/survey" element={<SurveyPage />} />
       </Routes>
     </Router>
   );
