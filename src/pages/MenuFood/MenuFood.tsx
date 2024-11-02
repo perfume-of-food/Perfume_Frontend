@@ -78,7 +78,7 @@ export function MenuFood() {
       {/* Confirm Panel Modal */}
       {showConfirmPanel && (
         <ConfirmPanel
-          title={confirmMessageOnly ? "请选择您想要的食物" : selectedMeal?.title || ""}
+          title={confirmMessageOnly ? "アイコンをタップして、好きな食べ物を選んでください" : selectedMeal?.title || ""}
           onClose={() => setShowConfirmPanel(false)}
           onConfirm={handleConfirm}
           showButtons={!confirmMessageOnly}
