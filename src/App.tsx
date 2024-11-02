@@ -14,6 +14,7 @@ import { Step } from "./types/steps";
 import { useEffect } from "react";
 import { SurveyPage } from "./components/SurveyPage/SurveyPage";
 import { MoodMenu } from "./pages/MoodMenu/MoodMenu";
+import { MoodMenuIntro } from "./pages/MoodMenuIntro/MoodMenuIntro";
 
 function AppRoutes() {
   const { step } = useIntroStore();
@@ -27,6 +28,9 @@ function AppRoutes() {
       case Step.MOOD_PICKUP_PANEL:
         navigate("/mood-pickup");
         break;
+      case Step.MOOD_MENU_INTRO:
+        navigate("/mood-menu-intro");
+        break;
       case Step.MOOD_MENU:
         navigate("/mood-menu");
         break;
@@ -39,6 +43,7 @@ function AppRoutes() {
       <Route path="/intro" element={<Intro />} />
       <Route path="/mood-recommendation" element={<MoodRecommendation />} />
       <Route path="/mood-pickup" element={<MoodPickup />} />
+      <Route path="/mood-menu-intro" element={<MoodMenuIntro />} />
       <Route path="/mood-menu" element={<MoodMenu />} />
       <Route path="/desert" element={<MoodMenu />} />
       <Route path="/drink" element={<MoodMenu />} />

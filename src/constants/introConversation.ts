@@ -20,6 +20,9 @@ export const introConversation = [
   "そっか...",
   "心配しないで、さっき考えた基本の感情要素をもとに、もっと高次の複雑な感情が見つかるはずだから、",
   "この高次感情の円環の中から、自分にぴったりの感情を探してみよう。",
+  "料理の注文に必要な「感情」が準備できたから、これからメニューを見てみよう。",
+  "食べ物の香りは、心の奥にある感情の記憶を呼び覚ますことができるでしょう？",
+  "君の感情にふさわしい料理の香りはどれかな？選んでみよう。"
 ];
 
 // 定义每个步骤对应的对话索引范围
@@ -35,6 +38,7 @@ export const stepMessageRanges: Record<Step, { start: number; end: number }> = {
   [Step.MOOD_CONFIRMATION]: { start: 15, end: 15 }, // 示例
   [Step.MOOD_PICKUP_INTRO]: { start: 16, end: 18 }, // 示例
   [Step.MOOD_PICKUP_PANEL]: { start: 0, end: 0 }, // 示例
+  [Step.MOOD_MENU_INTRO]: { start: 19, end: 21 }, // 示例
   [Step.MOOD_MENU]: { start: 0, end: 0 }, // 示例
 };
 

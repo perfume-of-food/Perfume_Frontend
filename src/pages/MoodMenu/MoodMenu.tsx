@@ -61,7 +61,7 @@ export function MoodMenu() {
         <div className="relative row-[span_60_/_span_60] col-[span_33_/_span_33] border-b-[1px] border-orange">
           <div className="flex justify-center items-end h-full">
             <img
-              src="src/statics/owl.png"
+              src="/owl.png"
               alt="Owl"
               className="w-full h-58% object-cover"
             />
