@@ -30,7 +30,6 @@ export const Conversation = () => {
     }
     const nextIndex = (textIndex + 1) % conversation.length;
     setTextIndex(nextIndex);
-    console.log(step);
   };
 
   return (
@@ -80,7 +79,7 @@ export const Conversation = () => {
                 userName,
                 recommendedMood: getRecommendedMood(),
                 recommendedMoodDescription: getRecommendedMoodDescription(),
-            })}
+              })}
           </span>
         </div>
       </div>

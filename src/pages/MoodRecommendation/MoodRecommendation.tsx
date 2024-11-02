@@ -9,11 +9,9 @@ import { EmotionSlider } from "@/components/EmotionSlider/EmotionSlider";
 import { DetermineButton } from "@/components/DetermineButton/DetermineButton";
 import { MoodChoice } from "@/components/MoodChoice/MoodChoice";
 import { MoodChoiceButton } from "@/components/MoodChoiceButton/MoodChoiceButton";
-import { useNavigate } from "react-router-dom";
 
 export function MoodRecommendation() {
   const { step, setStep, moveToNextStep } = useIntroStore();
-  const navigate = useNavigate();
 
   return (
     <div className="w-screen h-screen border-x-[32px] border-y-[28px] border-black">
