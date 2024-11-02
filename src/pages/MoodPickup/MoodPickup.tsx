@@ -28,7 +28,7 @@ export function MoodPickup() {
         <div className="row-[span_71_/_span_71] col-[span_100_/span_100] border-b-[1px] border-orange">
           <div className="flex w-full h-[5rem] justify-center items-center">
             <span className="font-serif text-4xl text-white [-webkit-text-stroke:_3px_#FEA237;] [paint-order:stroke_fill]">
-              ｜サーカムプレックス｜
+              ｜感情の円環｜
             </span>
           </div>
           <div className="w-full px-[2%]">
