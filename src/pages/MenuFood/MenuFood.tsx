@@ -6,12 +6,14 @@ import { MenuData } from "../../data/MenuData";
 import Menulist from "../../components/MenuList/MenuList";
 import MealDescription from "../../components/MealDescription/MealDescription";
 import ConfirmPanel from "../../components/ConfirmPanel/ConfirmPanel";
+import { LoadingPage } from "@/components/LoadingPage/LaodingPage"
 
 export function MenuFood() {
   const [selectedCategory, setSelectedCategory] = useState<string>("おすすめ");
   const [selectedMeal, setSelectedMeal] = useState<{ title: string; description: string } | null>(null);
   const [showConfirmPanel, setShowConfirmPanel] = useState<boolean>(false);
   const [confirmMessageOnly, setConfirmMessageOnly] = useState<boolean>(false);
+  const [showLoading, setShowLoading] = useState<boolean>(false);
 
   const filteredMeals = MenuData.filter((meal) => {
     if (selectedCategory === "おすすめ") return true;
@@ -24,11 +26,16 @@ export function MenuFood() {
 
   const handleDetermineButtonClick = () => {
     if (!selectedMeal) {
-      setConfirmMessageOnly(true); // Show message only
+      setConfirmMessageOnly(true);
     } else {
-      setConfirmMessageOnly(false); // Show confirmation buttons
+      setConfirmMessageOnly(false);
     }
     setShowConfirmPanel(true);
+  };
+
+  const handleConfirm = () => {
+    setShowConfirmPanel(false);
+    setShowLoading(true); // 显示 loading 页面
   };
 
   return (
@@ -73,9 +80,16 @@ export function MenuFood() {
         <ConfirmPanel
           title={confirmMessageOnly ? "请选择您想要的食物" : selectedMeal?.title || ""}
           onClose={() => setShowConfirmPanel(false)}
-          onConfirm={() => setShowConfirmPanel(false)}
+          onConfirm={handleConfirm}
           showButtons={!confirmMessageOnly}
         />
+      )}
+
+      {/* Loading Page 显示 */}
+      {showLoading && (
+        <div className="fixed inset-0 z-50">
+          <LoadingPage />
+        </div>
       )}
     </div>
   );
