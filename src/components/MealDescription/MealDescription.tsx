@@ -8,7 +8,7 @@ const MealDescription = ({ description }: MealDescriptionProps) => {
             {description ? (
                 <p>{description}</p>
             ) : (
-                <p>点击食物图片查看描述</p>
+                <p>アイコンをタップして、好きな食べ物を選んでください</p>
             )}
         </div>
     );
