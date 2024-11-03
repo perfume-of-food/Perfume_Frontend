@@ -3,7 +3,7 @@ import hageshi from "@/assets/hageshi.png";
 import heitan from "@/assets/heitan.png";
 import { useIntroStore } from "@/stores/useIntroStore";
 
-export const EmotionSlider = ({ min = 0, max = 100 }) => {
+export const EmotionSlider = ({ min = -50, max = 50 }) => {
   const { emotionValue, setEmotionValue } = useIntroStore();
 
   // 计算两侧光晕强度

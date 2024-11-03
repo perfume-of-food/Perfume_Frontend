@@ -9,8 +9,7 @@ export const Conversation = () => {
     getCurrentStepMessages,
     moveToNextStep,
     userName,
-    getRecommendedMood,
-    getRecommendedMoodDescription,
+    getPrimaryMood,
   } = useIntroStore();
   const conversation = getCurrentStepMessages(step);
   const [textIndex, setTextIndex] = useState(0);
@@ -77,8 +76,8 @@ export const Conversation = () => {
             {conversation[textIndex] &&
               formatMessage(conversation[textIndex], {
                 userName,
-                recommendedMood: getRecommendedMood(),
-                recommendedMoodDescription: getRecommendedMoodDescription(),
+                primaryMood: getPrimaryMood().name,
+                primaryMoodDesc: getPrimaryMood().desc,
               })}
           </span>
         </div>

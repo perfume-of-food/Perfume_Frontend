@@ -3,7 +3,7 @@ import joyful from "@/assets/joyful.png";
 import sad from "@/assets/sad.png";
 import { useIntroStore } from "@/stores/useIntroStore";
 
-export const JoyfulSlider = ({ min = 0, max = 100 }) => {
+export const JoyfulSlider = ({ min = -50, max = 50 }) => {
   const { joyfulValue, setJoyfulValue } = useIntroStore();
 
   // 计算两侧光晕强度

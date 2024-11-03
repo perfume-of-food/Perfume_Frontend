@@ -3,7 +3,7 @@ import { introConversation } from "@/constants/introConversation";
 import { stepMessageRanges } from "@/constants/introConversation";
 import { Step, getNextStep } from "@/types/steps";
 
-import { grayscaleMoodList } from "@/constants/moods";
+import { Mood, grayscaleMoodList } from "@/constants/moods";
 
 interface IntroState {
   step: Step;
@@ -20,8 +20,8 @@ interface IntroState {
   setJoyfulValue: (value: number) => void;
   emotionValue: number;
   setEmotionValue: (value: number) => void;
-  getRecommendedMood: () => string; // 新增 getter
-  getRecommendedMoodDescription: () => string; // 新增 getter
+  getPrimaryMood: () => Mood;
+  getRelatedMoods: () => Mood[];
 }
 
 export const useIntroStore = create<IntroState>((set, get) => ({
@@ -42,23 +42,46 @@ export const useIntroStore = create<IntroState>((set, get) => ({
   },
   userName: "",
   setUserName: (userName) => set({ userName: userName }),
-  joyfulValue: 50,
+  joyfulValue: 0,
   setJoyfulValue: (value) => set({ joyfulValue: value }),
-  emotionValue: 50,
+  emotionValue: 0,
   setEmotionValue: (value) => set({ emotionValue: value }),
-  getRecommendedMood: () => {
+  getPrimaryMood: () => {
     const state = get();
-    if (state.joyfulValue >= 75 && state.emotionValue >= 75) return "Relaxed";
-    if (state.joyfulValue >= 75 && state.emotionValue < 25) return "Nervous";
-    if (state.joyfulValue < 25 && state.emotionValue >= 75) return "Depressed";
-    if (state.joyfulValue < 25 && state.emotionValue < 25) return "Peaceful";
-    return "Furious";
+    const distances = grayscaleMoodList.map((mood) => ({
+      ...mood,
+      distance: Math.sqrt(
+        Math.pow(state.joyfulValue - mood.x, 2) +
+          Math.pow(state.emotionValue - mood.y, 2)
+      ),
+    }));
+
+    const sortedMoods = distances.sort((a, b) => a.distance - b.distance);
+    return grayscaleMoodList.filter((mood) => mood.id === sortedMoods[0].id)[0];
   },
-  getRecommendedMoodDescription: () => {
+
+  getRelatedMoods: () => {
     const state = get();
-    const moodDescription = grayscaleMoodList.filter(
-      (mood) => mood.name === state.getRecommendedMood()
-    )?.[0]?.desc;
-    return moodDescription || "";
+    const distances = grayscaleMoodList.map((mood) => ({
+      ...mood,
+      distance: Math.sqrt(
+        Math.pow(state.joyfulValue - mood.x, 2) +
+          Math.pow(state.emotionValue - mood.y, 2)
+      ),
+    }));
+
+    const sortedMoods = distances.sort((a, b) => a.distance - b.distance);
+    const primaryMoodId = sortedMoods[0].id;
+
+    const prevId = primaryMoodId === 1 ? 24 : primaryMoodId - 1;
+    const nextId = primaryMoodId === 24 ? 1 : primaryMoodId + 1;
+
+    const primaryMood = grayscaleMoodList.find(
+      (mood) => mood.id === primaryMoodId
+    )!;
+    const prevMood = grayscaleMoodList.find((mood) => mood.id === prevId)!;
+    const nextMood = grayscaleMoodList.find((mood) => mood.id === nextId)!;
+
+    return [primaryMood, prevMood, nextMood];
   },
 }));
