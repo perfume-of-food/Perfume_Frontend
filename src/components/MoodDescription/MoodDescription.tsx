@@ -1,8 +1,8 @@
-import { useMoodStore } from "@/stores/useMoodStore";
+import { useMoodPanelStore } from "@/stores/useMoodPanelStore";
 import { grayscaleMoodList } from "@/constants/moodConstants";
 
 export const MoodDescription = () => {
-  const { selectedMood, isDescriptionFlashing } = useMoodStore();
+  const { selectedMood, isDescriptionFlashing } = useMoodPanelStore();
 
   return (
     <div className="w-full h-full flex justify-center items-center font-dot text-[1.75rem] leading-[1.5] text-beige text-opacity-60">

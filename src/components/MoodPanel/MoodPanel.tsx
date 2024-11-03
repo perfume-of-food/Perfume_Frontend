@@ -1,8 +1,8 @@
-import { useMoodStore } from "@/stores/useMoodStore";
+import { useMoodPanelStore } from "@/stores/useMoodPanelStore";
 import { grayscaleMoodList } from "@/constants/moodConstants";
 
 export function MoodPanel() {
-  const { selectedMood, setSelectedMood } = useMoodStore();
+  const { selectedMood, setSelectedMood } = useMoodPanelStore();
 
   const viewBoxSize = 100; // 控制 viewBox 的边长
   const centerX = viewBoxSize / 2;

@@ -3,12 +3,12 @@ import { MoodPanel } from "@/components/MoodPanel/MoodPanel";
 import { MoodDescription } from "@/components/MoodDescription/MoodDescription";
 import { DetermineButton } from "@/components/DetermineButton/DetermineButton";
 import ConfirmPanel from "@/components/ConfirmPanel/ConfirmPanel";
-import { useMoodStore } from "@/stores/useMoodStore";
+import { useMoodPanelStore } from "@/stores/useMoodPanelStore";
 import { useState } from "react";
 import { useIntroStore } from "@/stores/useIntroStore";
 export function MoodPickup() {
   const { moveToNextStep } = useIntroStore();
-  const { selectedMood, setDescriptionFlash } = useMoodStore();
+  const { selectedMood, setDescriptionFlash } = useMoodPanelStore();
   const [showConfirmPanel, setShowConfirmPanel] = useState(false);
 
   return (

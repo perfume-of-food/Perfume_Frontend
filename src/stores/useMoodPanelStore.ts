@@ -8,7 +8,7 @@ interface MoodState {
   setDescriptionFlash: (isFlashing: boolean) => void;
 }
 
-export const useMoodStore = create<MoodState>((set) => ({
+export const useMoodPanelStore = create<MoodState>((set) => ({
   selectedMood: null,
   isDescriptionFlashing: false,
   setSelectedMood: (mood) => set({ selectedMood: mood }),
