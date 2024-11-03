@@ -21,14 +21,14 @@ export function WaitingPage() {
           </div>
 
           {/* Loading文字和边框 */}
-          <div className="relative flex flex-col items-center">
+          <div className="relative flex flex-col items-center gap-4">
             {/* 上边框 */}
             <div
               className="border-t-[1px] border-b-[1px] border-orange mb-2"
               style={{ width: "50%" }}
             ></div>
             {/* 文字 */}
-            <div className="font-serif text-4xl leading-[1.2] text-orange [-webkit-text-stroke:_2.5px_#FFFFFF;] [paint-order:stroke_fill] text-center">
+            <div className="font-serif text-4xl leading-[1.6] text-orange [-webkit-text-stroke:_2.5px_#FFFFFF;] [paint-order:stroke_fill] text-center">
               料理を準備中です。
               <br />
               しばらくお待ちください

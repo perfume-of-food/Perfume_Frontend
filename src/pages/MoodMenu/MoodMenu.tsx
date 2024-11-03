@@ -8,10 +8,11 @@ import ConfirmPanel from "@/components/ConfirmPanel/ConfirmPanel";
 import owl_stick from "@/assets/owl_stick.png";
 import { useMoodMenuStore } from "@/stores/useMoodMenuStore";
 import { useIntroStore } from "@/stores/useIntroStore";
+import { FoodCategory } from "@/types/Mood";
 
 export function MoodMenu() {
   const { moveToNextStep } = useIntroStore();
-  const { selectedFood, setDescriptionFlash } = useMoodMenuStore();
+  const { selectedFood, setDescriptionFlash, selectedCategory } = useMoodMenuStore();
   const [showConfirmPanel, setShowConfirmPanel] = useState(false);
 
   return (
@@ -33,7 +34,7 @@ export function MoodMenu() {
         </div>
         <div className="relative row-[span_60_/_span_60] col-[span_33_/_span_33] border-b-[1px] border-orange">
           <div className="flex flex-col justify-around items-end h-full">
-            <div className="pr-6">
+            <div className="pr-6 relative">
               <svg
                 width="247"
                 height="269"
@@ -61,6 +62,12 @@ export function MoodMenu() {
                   mask="url(#path-1-inside-1_241_69)"
                 />
               </svg>
+              <div className="absolute top-0 left-0 pt-2 pl-4 pr-6 font-dot text-beige text-2xl whitespace-pre-line">
+                {selectedCategory === FoodCategory.RECOMMENDED
+                  ? "これまでの経験から君におすすめする三品だよ。\n\nもちろん他の料理も自由に選んでいい。"
+                  : "君がどの料理を選ぶのか…楽しみだな。"
+                }
+              </div>
             </div>
             <img
               src={owl_stick}
