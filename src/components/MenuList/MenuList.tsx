@@ -56,9 +56,9 @@ const Menulist = () => {
                     "repeating-linear-gradient(to right, #FFEFD0, #FFEFD0 10px, transparent 10px, transparent 20px)",
                 }}
               ></div>
-              <h5 className="text-4xl font-semibold text-[#FFEFD0] text-right ">
+              <span className="font-dot text-4xl text-beige text-right ">
                 {meal.title}
-              </h5>
+              </span>
             </div>
           )
         )}

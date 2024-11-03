@@ -13,7 +13,7 @@ export const ConversationBubble = () => {
                     d="M237.344 0H9.65638L0 25.8354V197.165L9.65638 223H173L187.289 268.75L201.579 223H237.344L247 197.165V25.8354L237.344 0Z"
                     stroke="#FEA237" 
                     fill="#FEA237" 
-                    fill-opacity="0.2" 
+                    fillOpacity="0.2" 
                 />
             </svg>
 

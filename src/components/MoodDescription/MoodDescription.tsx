@@ -20,7 +20,10 @@ export const MoodDescription = () => {
             }
           `}
         </style>
-        {selectedMood && `[${selectedMood}]: ${grayscaleMoodList.find((mood) => mood.name === selectedMood)?.desc ?? ''}`}
+        {selectedMood 
+          ? `[${selectedMood}]: ${grayscaleMoodList.find((mood) => mood.name === selectedMood)?.desc}`
+          : '感情を一つ選択してください'
+        }
       </span>
     </div>
   );
