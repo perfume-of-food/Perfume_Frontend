@@ -22,7 +22,7 @@ export enum Mood {
   IRRITATED = "いらいら",
   FEAR = "恐怖",
   NERVOUS = "緊張",
-  ANGRY = "怒り"
+  ANGRY = "怒り",
 }
 
 export const MoodFoodPairings: Record<Mood, string> = {
@@ -47,7 +47,7 @@ export const MoodFoodPairings: Record<Mood, string> = {
   [Mood.MISERABLE]: "ゴーヤサラダ",
   [Mood.DISAPPOINTED]: "ビール",
   [Mood.IRRITATED]: "薬膳スープ",
-  [Mood.FEAR]: "？きのこスープ",
+  [Mood.FEAR]: "きのこスープ",
   [Mood.NERVOUS]: "わさび",
-  [Mood.ANGRY]: "激辛麻婆豆腐"
+  [Mood.ANGRY]: "激辛麻婆豆腐",
 };
