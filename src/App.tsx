@@ -49,10 +49,6 @@ function AppRoutes() {
       <Route path="/mood-pickup" element={<MoodPickup />} />
       <Route path="/mood-menu-intro" element={<MoodMenuIntro />} />
       <Route path="/mood-menu" element={<MoodMenu />} />
-      <Route path="/desert" element={<MoodMenu />} />
-      <Route path="/drink" element={<MoodMenu />} />
-      <Route path="/snacks" element={<MoodMenu />} />
-      <Route path="/others" element={<MoodMenu />} />
       <Route path="/survey" element={<SurveyPage />} />
       <Route path="/waiting-backend" element={<WaitingPage />} />
     </Routes>
