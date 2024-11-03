@@ -13,14 +13,6 @@ const MealDescription = () => {
             : "none",
         }}
       >
-        <style>
-          {`
-            @keyframes jumpUp {
-              0%, 100% { transform: translateY(0); }
-              50% { transform: translateY(-10px); }
-            }
-          `}
-        </style>
         {description ?? "アイコンをタップして、好きな食べ物を選んでください"}
       </span>
     </div>

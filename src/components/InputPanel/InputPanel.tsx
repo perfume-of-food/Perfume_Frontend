@@ -16,6 +16,7 @@ export const InputPanel = ({ onClose, onConfirm }: InputPanelProps) => {
   const [panelState, setPanelState] = useState<InputPanelState>(
     InputPanelState.INPUT
   );
+  const [isJumping, setIsJumping] = useState(false);
 
   const handleOutsideClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if ((e.target as HTMLElement).id === "confirm-panel-overlay") {
@@ -107,12 +108,20 @@ export const InputPanel = ({ onClose, onConfirm }: InputPanelProps) => {
 
         {panelState === InputPanelState.INPUT && (
           <div className="absolute flex flex-col items-center justify-center w-full h-full gap-8 pt-20">
-            <span className="text-beige text-[1.8rem] font-dot w-[72%] text-left">
+            <span
+              className="text-beige text-[1.8rem] font-dot w-[72%] text-left"
+              style={{
+                animation: isJumping ? "jumpUp 300ms ease-in-out" : "none",
+              }}
+            >
               君はどうの様に呼ばれたいですか？：
             </span>
             <div className="relative w-[75%] h-[50%]">
               <svg
                 className="w-full h-full"
+                style={{
+                  animation: isJumping ? "jumpUp 300ms ease-in-out" : "none",
+                }}
                 preserveAspectRatio="none"
                 viewBox="0 0 247 87"
                 fill="none"
@@ -134,7 +143,14 @@ export const InputPanel = ({ onClose, onConfirm }: InputPanelProps) => {
             <div className="w-[150px] h-[80px]">
               <div
                 className="flex w-full h-full justify-center items-center relative group"
-                onClick={() => setPanelState(InputPanelState.CONFIRM)}
+                onClick={() => {
+                  if (!userName.trim()) {
+                    setIsJumping(true);
+                    setTimeout(() => setIsJumping(false), 300); // 动画结束后重置状态
+                    return;
+                  }
+                  setPanelState(InputPanelState.CONFIRM);
+                }}
               >
                 <svg
                   className="w-full h-full"
