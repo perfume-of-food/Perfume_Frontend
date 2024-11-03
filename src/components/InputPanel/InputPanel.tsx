@@ -142,7 +142,7 @@ export const InputPanel = ({ onClose, onConfirm }: InputPanelProps) => {
             </div>
             <div className="w-[150px] h-[80px]">
               <div
-                className="flex w-full h-full justify-center items-center relative group"
+                className="flex w-full h-full justify-center items-center relative "
                 onClick={() => {
                   if (!userName.trim()) {
                     setIsJumping(true);
@@ -162,7 +162,7 @@ export const InputPanel = ({ onClose, onConfirm }: InputPanelProps) => {
                   <path
                     d="M5.18924 5.38553L9.86979 0.5H237.13L246.5 10.2801V76.7199L241.811 81.6145L237.13 86.5H9.86979L5.18924 81.6145L0.5 76.7199V10.2801L5.18924 5.38553Z"
                     fill="#FEA237"
-                    className="[fillOpacity:0.2] [stroke-opacity:1] group-active:[fillOpacity:0.5]"
+                    className="[fillOpacity:0.2] [stroke-opacity:1] active:[fillOpacity:0.5]"
                     stroke="#FEA237"
                   />
                 </svg>
@@ -184,7 +184,7 @@ export const InputPanel = ({ onClose, onConfirm }: InputPanelProps) => {
             <div className="flex gap-8">
               <div className="w-[150px] h-[80px]">
                 <div
-                  className="flex w-full h-full justify-center items-center relative group"
+                  className="flex w-full h-full justify-center items-center relative "
                   onClick={() => setPanelState(InputPanelState.INPUT)}
                 >
                   <svg
@@ -197,7 +197,7 @@ export const InputPanel = ({ onClose, onConfirm }: InputPanelProps) => {
                     <path
                       d="M5.18924 5.38553L9.86979 0.5H237.13L246.5 10.2801V76.7199L241.811 81.6145L237.13 86.5H9.86979L5.18924 81.6145L0.5 76.7199V10.2801L5.18924 5.38553Z"
                       fill="#FEA237"
-                      className="[fillOpacity:0.2] [stroke-opacity:1] group-active:[fillOpacity:0.5]"
+                      className="[fillOpacity:0.2] [stroke-opacity:1] active:[fillOpacity:0.5]"
                       stroke="#FEA237"
                     />
                   </svg>
@@ -208,7 +208,7 @@ export const InputPanel = ({ onClose, onConfirm }: InputPanelProps) => {
               </div>
               <div className="w-[150px] h-[80px]">
                 <div
-                  className="flex w-full h-full justify-center items-center relative group"
+                  className="flex w-full h-full justify-center items-center relative "
                   onClick={onConfirm}
                 >
                   <svg
@@ -221,7 +221,7 @@ export const InputPanel = ({ onClose, onConfirm }: InputPanelProps) => {
                     <path
                       d="M5.18924 5.38553L9.86979 0.5H237.13L246.5 10.2801V76.7199L241.811 81.6145L237.13 86.5H9.86979L5.18924 81.6145L0.5 76.7199V10.2801L5.18924 5.38553Z"
                       fill="#FEA237"
-                      className="[fillOpacity:0.2] [stroke-opacity:1] group-active:[fillOpacity:0.5]"
+                      className="[fillOpacity:0.2] [stroke-opacity:1] active:[fillOpacity:0.5]"
                       stroke="#FEA237"
                     />
                   </svg>
