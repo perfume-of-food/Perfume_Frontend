@@ -1,10 +1,10 @@
 import { useMoodMenuStore } from "@/stores/useMoodMenuStore";
 
-const MealDescription = () => {
-  const { selectedMeal, isDescriptionFlashing } = useMoodMenuStore();
-  const description = selectedMeal?.description;
+export const FoodDescription = () => {
+  const { selectedFood, isDescriptionFlashing } = useMoodMenuStore();
+  const description = selectedFood?.description;
   return (
-    <div className="meal-description flex center items-center p-12 text-[#FFEFD0] text-3xl font-dot h-full w-full">
+    <div className="flex center items-center p-12 text-[#FFEFD0] text-3xl font-dot h-full w-full">
       <span
         className="px-12"
         style={{
@@ -19,4 +19,4 @@ const MealDescription = () => {
   );
 };
 
-export default MealDescription;
+

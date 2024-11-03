@@ -4,16 +4,16 @@ import { useMoodMenuStore } from "@/stores/useMoodMenuStore";
 const Menulist = () => {
   const {
     selectedCategory,
-    selectedMeal,
-    setSelectedMeal,
-    getRecommendedMeals,
+    selectedFood,
+    setselectedFood,
+    getRecommendedFoods,
   } = useMoodMenuStore();
 
   return (
     <div className="relative w-full h-full overflow-x-hidden">
       <div className="relative px-5 py-2 overflow-y-scroll h-full">
         {(selectedCategory === "おすすめ"
-          ? getRecommendedMeals()
+          ? getRecommendedFoods()
           : foodList.filter((food) => food.category === selectedCategory)
         ).map((food) => (
           <div
@@ -23,7 +23,7 @@ const Menulist = () => {
             <div
               className="relative w-48 h-48 flex justify-center items-center"
               onClick={() => {
-                setSelectedMeal(food.description, food.title);
+                setselectedFood(food.description, food.title);
               }}
             >
               <img
@@ -44,7 +44,7 @@ const Menulist = () => {
                     fill="#FEA237"
                     style={{
                       fillOpacity:
-                        selectedMeal?.title === food.title ? 0.5 : 0.2,
+                        selectedFood?.title === food.title ? 0.5 : 0.2,
                       strokeOpacity: 1,
                     }}
                     stroke="#FEA237"

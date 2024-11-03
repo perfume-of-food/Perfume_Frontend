@@ -3,7 +3,7 @@ import { SettingButton } from "@/components/SettingButton/SettingButton";
 import { DetermineButton } from "@/components/DetermineButton/DetermineButton";
 import Header from "@/components/Header/Header";
 import Menulist from "@/components/MenuList/MenuList";
-import MealDescription from "@/components/MealDescription/MealDescription";
+import { FoodDescription } from "@/components/FoodDescription/FoodDescription";
 import ConfirmPanel from "@/components/ConfirmPanel/ConfirmPanel";
 import owl_stick from "@/assets/owl_stick.png";
 import { useMoodMenuStore } from "@/stores/useMoodMenuStore";
@@ -11,7 +11,7 @@ import { useIntroStore } from "@/stores/useIntroStore";
 
 export function MoodMenu() {
   const { moveToNextStep } = useIntroStore();
-  const { selectedMeal, setDescriptionFlash } = useMoodMenuStore();
+  const { selectedFood, setDescriptionFlash } = useMoodMenuStore();
   const [showConfirmPanel, setShowConfirmPanel] = useState(false);
 
   return (
@@ -70,12 +70,12 @@ export function MoodMenu() {
           </div>
         </div>
         <div className="row-[span_22_/_span_22] col-[span_67_/_span_67] border-r-[1px] border-orange">
-          <MealDescription />
+          <FoodDescription />
         </div>
         <div className="row-[span_22_/_span_22] col-[span_33_/_span_33]">
           <DetermineButton
             onClick={() => {
-              if (selectedMeal) {
+              if (selectedFood) {
                 setShowConfirmPanel(true);
               } else {
                 setDescriptionFlash(true);
@@ -91,7 +91,7 @@ export function MoodMenu() {
       {/* Confirm Panel Modal */}
       {showConfirmPanel && (
         <ConfirmPanel
-          title={selectedMeal?.title || ""}
+          title={selectedFood?.title || ""}
           onClose={() => setShowConfirmPanel(false)}
           onConfirm={moveToNextStep}
           showButtons={true}
