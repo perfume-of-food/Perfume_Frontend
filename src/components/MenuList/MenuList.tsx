@@ -35,7 +35,7 @@ const Menulist = () => {
                 <svg
                   className="w-full h-full transition-opacity duration-200"
                   preserveAspectRatio="none"
-                  viewBox="0 0 246 86"
+                  viewBox="0 0 247 87"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
