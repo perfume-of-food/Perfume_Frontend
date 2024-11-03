@@ -1,6 +1,8 @@
 import { useMoodPanelStore } from "@/stores/useMoodPanelStore";
 import { grayscaleMoodList } from "@/constants/moodConstants";
 
+import owl_roundhead from "@/assets/owl_roundhead.png";
+
 export function MoodPanel() {
   const { selectedMood, setSelectedMood } = useMoodPanelStore();
 
@@ -28,7 +30,12 @@ export function MoodPanel() {
   });
 
   return (
-    <div className="w-full h-full flex items-center justify-center bg-white">
+    <div className="w-full h-full flex items-center justify-center bg-white relative">
+      <img
+        src={owl_roundhead}
+        alt="owl_roundhead"
+        className="absolute -top-12 right-4 "
+      />
       <div className="w-[900px] h-[800px]">
         <svg
           viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
