@@ -1,4 +1,7 @@
 import { create } from "zustand";
+import { MoodFoodPairings } from "../types/Mood";
+import { useIntroStore } from "./useIntroStore";
+import { FoodItem, foodList } from "../constants/foodConstants";
 
 interface MoodMenuState {
   selectedCategory: string;
@@ -19,6 +22,8 @@ interface MoodMenuState {
   setConfirmMessageOnly: (show: boolean) => void;
   setShowLoading: (show: boolean) => void;
   setDescriptionFlash: (isFlashing: boolean) => void;
+
+  getRecommendedMeals: () => FoodItem[];
 }
 
 export const useMoodMenuStore = create<MoodMenuState>((set) => ({
@@ -39,4 +44,11 @@ export const useMoodMenuStore = create<MoodMenuState>((set) => ({
   setShowLoading: (show) => set({ showLoading: show }),
   setDescriptionFlash: (isFlashing) =>
     set({ isDescriptionFlashing: isFlashing }),
+  getRecommendedMeals: () => {
+    const relatedMoods = useIntroStore.getState().getRelatedMoods();
+    return relatedMoods.map((mood) => {
+      const foodName = MoodFoodPairings[mood.name];
+      return foodList.find((food) => food.title === foodName)!;
+    });
+  },
 }));

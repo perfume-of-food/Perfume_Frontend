@@ -52,6 +52,14 @@ export enum Food {
   SPICY_MAPO_TOFU = "激辛麻婆豆腐"
 }
 
+export enum FoodCategory {
+  DESSERT = "デザート",
+  BEVERAGE = "飲み物",
+  DISH = "一品料理",
+  OTHER = "その他",
+  RECOMMENDED = "おすすめ"
+}
+
 export const MoodFoodPairings: Record<Mood, Food> = {
   [Mood.AMAZEMENT]: Food.MINT_CANDY,
   [Mood.SURPRISE]: Food.SODA,
