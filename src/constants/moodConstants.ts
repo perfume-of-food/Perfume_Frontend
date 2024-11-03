@@ -1,6 +1,6 @@
 import { Mood } from "@/types/Mood";
 
-export interface MoodEntry {
+export interface MoodItem {
   id: number;
   name: Mood;
   color: string;
@@ -11,7 +11,7 @@ export interface MoodEntry {
 
 const color = "#808080";
 
-export const grayscaleMoodList: MoodEntry[] = [
+export const grayscaleMoodList: MoodItem[] = [
   { id: 1, name: Mood.AMAZEMENT, color, desc: "驚きに似ているが、衝撃や信じ難さを含む場合がある", x: 0, y: 50 },
   { id: 2, name: Mood.SURPRISE, color, desc: "意外や予想外のことに対する感情で、強い好奇心を伴うことが多い", x: 12.94, y: 48.30 },
   { id: 3, name: Mood.EXCITEMENT, color, desc: "喜びや活力が表れ、何かポジティブな出来事への期待を伴う", x: 25.00, y: 43.30 },

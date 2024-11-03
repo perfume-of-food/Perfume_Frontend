@@ -1,9 +1,11 @@
 import { create } from "zustand";
-import { introConversation } from "@/constants/introConversation";
-import { stepMessageRanges } from "@/constants/introConversation";
+import {
+  conversation,
+  stepMessageRanges,
+} from "@/constants/conversationConstants";
 import { Step, getNextStep } from "@/types/Step";
 
-import { MoodEntry, grayscaleMoodList } from "@/constants/moods";
+import { MoodItem, grayscaleMoodList } from "@/constants/moodConstants";
 
 interface IntroState {
   step: Step;
@@ -20,15 +22,15 @@ interface IntroState {
   setJoyfulValue: (value: number) => void;
   emotionValue: number;
   setEmotionValue: (value: number) => void;
-  getPrimaryMood: () => MoodEntry;
-  getRelatedMoods: () => MoodEntry[];
+  getPrimaryMood: () => MoodItem;
+  getRelatedMoods: () => MoodItem[];
 }
 
 export const useIntroStore = create<IntroState>((set, get) => ({
   step: Step.GREETING,
   conversation: {
     currentIndex: 0,
-    messages: introConversation,
+    messages: conversation,
   },
   setStep: (step) => set({ step }),
   moveToNextStep: () =>
@@ -38,7 +40,7 @@ export const useIntroStore = create<IntroState>((set, get) => ({
     }),
   getCurrentStepMessages: (step) => {
     const range = stepMessageRanges[step];
-    return range ? introConversation.slice(range.start, range.end + 1) : [];
+    return range ? conversation.slice(range.start, range.end + 1) : [];
   },
   userName: "",
   setUserName: (userName) => set({ userName: userName }),

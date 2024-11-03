@@ -1,6 +1,6 @@
 import { Step } from "@/types/Step";
 
-export const introConversation = [
+export const conversation = [
   "やっと来てくれた。",
   "ようこそ……ずっと君を待っていたんだ。",
   "ここは「心の味わい」というレストランで、みんなはよく私のことを『店長』って呼んでいる。",

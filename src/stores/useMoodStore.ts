@@ -1,13 +1,13 @@
 import { create } from "zustand";
-import { grayscaleMoodList } from "../constants/moods";
-
-type MoodName = (typeof grayscaleMoodList)[number]["name"];
+import { Mood, MoodFoodPairings, Food } from "../types/Mood";
+import { useIntroStore } from "./useIntroStore";
 
 interface MoodState {
-  selectedMood: MoodName | null;
+  selectedMood: Mood | null;
   isDescriptionFlashing: boolean;
-  setSelectedMood: (mood: MoodName) => void;
+  setSelectedMood: (mood: Mood) => void;
   setDescriptionFlash: (isFlashing: boolean) => void;
+  getRecommendedMeals: () => Food[];
 }
 
 export const useMoodStore = create<MoodState>((set) => ({
@@ -16,4 +16,8 @@ export const useMoodStore = create<MoodState>((set) => ({
   setSelectedMood: (mood) => set({ selectedMood: mood }),
   setDescriptionFlash: (isFlashing) =>
     set({ isDescriptionFlashing: isFlashing }),
+  getRecommendedMeals: () => {
+    const relatedMoods = useIntroStore.getState().getRelatedMoods();
+    return relatedMoods.map((mood) => MoodFoodPairings[mood.name]);
+  },
 }));

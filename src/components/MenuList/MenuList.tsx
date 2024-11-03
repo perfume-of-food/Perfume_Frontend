@@ -1,4 +1,4 @@
-import { MenuData } from "@/constants/MenuData";
+import { foodList } from "@/constants/foodConstants";
 
 import { useMoodMenuStore } from "@/stores/useMoodMenuStore";
 const Menulist = () => {
@@ -8,20 +8,21 @@ const Menulist = () => {
   return (
     <div className="relative w-full h-full overflow-x-hidden">
       <div className="relative px-5 py-2 overflow-y-scroll h-full">
-        {MenuData.filter((meal) => meal.category === selectedCategory).map(
-          (meal) => (
+        {foodList
+          .filter((food) => food.category === selectedCategory)
+          .map((food) => (
             <div
-              key={meal.id}
+              key={food.id}
               className="w-full flex justify-between items-center"
             >
               <div
                 className="relative w-48 h-48 flex justify-center items-center"
                 onClick={() => {
-                  setSelectedMeal(meal.description, meal.title);
+                  setSelectedMeal(food.description, food.title);
                 }}
               >
                 <img
-                  src={meal.img}
+                  src={food.img}
                   alt="img"
                   className="object-contain w-[92%] h-[92%] relative z-10"
                 />
@@ -38,7 +39,7 @@ const Menulist = () => {
                       fill="#FEA237"
                       style={{
                         fillOpacity:
-                          selectedMeal?.title === meal.title ? 0.5 : 0.2,
+                          selectedMeal?.title === food.title ? 0.5 : 0.2,
                         strokeOpacity: 1,
                       }}
                       stroke="#FEA237"
@@ -57,11 +58,10 @@ const Menulist = () => {
                 }}
               ></div>
               <span className="font-dot text-4xl text-beige text-right ">
-                {meal.title}
+                {food.title}
               </span>
             </div>
-          )
-        )}
+          ))}
       </div>
     </div>
   );

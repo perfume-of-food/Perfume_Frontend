@@ -1,5 +1,5 @@
 import { useMoodStore } from "@/stores/useMoodStore";
-import { grayscaleMoodList } from "@/constants/moods";
+import { grayscaleMoodList } from "@/constants/moodConstants";
 
 export function MoodPanel() {
   const { selectedMood, setSelectedMood } = useMoodStore();
