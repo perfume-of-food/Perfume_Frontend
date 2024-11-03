@@ -1,4 +1,4 @@
-export enum MoodType {
+export enum Mood {
   AMAZEMENT = "驚愕",
   SURPRISE = "サプライズ",
   EXCITEMENT = "ワクワク",
@@ -25,29 +25,29 @@ export enum MoodType {
   ANGRY = "怒り"
 }
 
-export const MoodFoodPairings: Record<MoodType, string> = {
-  [MoodType.AMAZEMENT]: "ハッカ飴",
-  [MoodType.SURPRISE]: "ソーダ",
-  [MoodType.EXCITEMENT]: "パインのかき氷",
-  [MoodType.JOY]: "いちごアイス",
-  [MoodType.SATISFACTION]: "唐揚げ",
-  [MoodType.HAPPINESS]: "チョコレート",
-  [MoodType.BLESSED]: "バニラケーキ",
-  [MoodType.RELIEF]: "ローズゼリー",
-  [MoodType.FULFILLMENT]: "焼き芋",
-  [MoodType.RELAXED]: "ミックスナッツ",
-  [MoodType.PEACEFUL]: "ジャスミン茶",
-  [MoodType.CALM]: "ホットティー",
-  [MoodType.DAZED]: "牛乳",
-  [MoodType.BORED]: "水",
-  [MoodType.TIRED]: "コーヒー",
-  [MoodType.SLUGGISH]: "たばこ",
-  [MoodType.SAD]: "米酢",
-  [MoodType.DEPRESSED]: "ワイン",
-  [MoodType.MISERABLE]: "ゴーヤサラダ",
-  [MoodType.DISAPPOINTED]: "ビール",
-  [MoodType.IRRITATED]: "薬膳スープ",
-  [MoodType.FEAR]: "？きのこスープ",
-  [MoodType.NERVOUS]: "わさび",
-  [MoodType.ANGRY]: "激辛麻婆豆腐"
-}; 
+export const MoodFoodPairings: Record<Mood, string> = {
+  [Mood.AMAZEMENT]: "ハッカ飴",
+  [Mood.SURPRISE]: "ソーダ",
+  [Mood.EXCITEMENT]: "パインのかき氷",
+  [Mood.JOY]: "いちごアイス",
+  [Mood.SATISFACTION]: "唐揚げ",
+  [Mood.HAPPINESS]: "チョコレート",
+  [Mood.BLESSED]: "バニラケーキ",
+  [Mood.RELIEF]: "ローズゼリー",
+  [Mood.FULFILLMENT]: "焼き芋",
+  [Mood.RELAXED]: "ミックスナッツ",
+  [Mood.PEACEFUL]: "ジャスミン茶",
+  [Mood.CALM]: "ホットティー",
+  [Mood.DAZED]: "牛乳",
+  [Mood.BORED]: "水",
+  [Mood.TIRED]: "コーヒー",
+  [Mood.SLUGGISH]: "たばこ",
+  [Mood.SAD]: "米酢",
+  [Mood.DEPRESSED]: "ワイン",
+  [Mood.MISERABLE]: "ゴーヤサラダ",
+  [Mood.DISAPPOINTED]: "ビール",
+  [Mood.IRRITATED]: "薬膳スープ",
+  [Mood.FEAR]: "？きのこスープ",
+  [Mood.NERVOUS]: "わさび",
+  [Mood.ANGRY]: "激辛麻婆豆腐"
+};
