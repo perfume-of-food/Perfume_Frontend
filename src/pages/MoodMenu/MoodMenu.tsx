@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { SettingButton } from "@//components/SettingButton/SettingButton";
-import { DetermineButton } from "@//components/DetermineButton/DetermineButton";
-import Header from "@//components/Header/Header";
-import Menulist from "@//components/MenuList/MenuList";
-import MealDescription from "@//components/MealDescription/MealDescription";
-import ConfirmPanel from "@//components/ConfirmPanel/ConfirmPanel";
+import { SettingButton } from "@/components/SettingButton/SettingButton";
+import { DetermineButton } from "@/components/DetermineButton/DetermineButton";
+import Header from "@/components/Header/Header";
+import Menulist from "@/components/MenuList/MenuList";
+import MealDescription from "@/components/MealDescription/MealDescription";
+import ConfirmPanel from "@/components/ConfirmPanel/ConfirmPanel";
 import owl_stick from "@/assets/owl_stick.png";
 import { useMoodMenuStore } from "@/stores/useMoodMenuStore";
 import { useIntroStore } from "@/stores/useIntroStore";

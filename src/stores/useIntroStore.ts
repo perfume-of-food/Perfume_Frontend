@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { introConversation } from "@/constants/introConversation";
 import { stepMessageRanges } from "@/constants/introConversation";
-import { Step, getNextStep } from "@/types/steps";
+import { Step, getNextStep } from "@/types/Step";
 
 import { Mood, grayscaleMoodList } from "@/constants/moods";
 

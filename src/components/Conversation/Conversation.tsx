@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Conversation.css";
 import { useIntroStore } from "@/stores/useIntroStore";
-import { Step } from "@/types/steps";
+import { Step } from "@/types/Step";
 import { formatMessage } from "@/utils/textUtils";
 export const Conversation = () => {
   const {

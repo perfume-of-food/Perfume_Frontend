@@ -1,9 +1,9 @@
-import { SettingButton } from "@//components/SettingButton/SettingButton";
-import { MenuHero } from "@//components/MenuHero/MenuHero";
+import { SettingButton } from "@/components/SettingButton/SettingButton";
+import { MenuHero } from "@/components/MenuHero/MenuHero";
 import { useIntroStore } from "@/stores/useIntroStore";
 import { Conversation } from "@/components/Conversation/Conversation";
 import { HintText } from "@/components/HintText/HintText";
-import { Step } from "@/types/steps";
+import { Step } from "@/types/Step";
 import { JoyfulSlider } from "@/components/JoyfulSlider/JoyfulSlider";
 import { EmotionSlider } from "@/components/EmotionSlider/EmotionSlider";
 import { DetermineButton } from "@/components/DetermineButton/DetermineButton";

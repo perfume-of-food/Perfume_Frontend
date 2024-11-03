@@ -8,14 +8,14 @@ import {
 import { Cover } from "@/pages/Cover/Cover";
 import { Intro } from "@/pages/Intro/Intro";
 import { MoodRecommendation } from "@/pages/MoodRecommendation/MoodRecommendation";
-import { MoodPickup } from "./pages/MoodPickup/MoodPickup";
-import { useIntroStore } from "./stores/useIntroStore";
-import { Step } from "./types/steps";
+import { MoodPickup } from "@/pages/MoodPickup/MoodPickup";
+import { useIntroStore } from "@/stores/useIntroStore";
+import { Step } from "@/types/Step";
 import { useEffect } from "react";
-import { SurveyPage } from "./components/SurveyPage/SurveyPage";
-import { MoodMenu } from "./pages/MoodMenu/MoodMenu";
-import { MoodMenuIntro } from "./pages/MoodMenuIntro/MoodMenuIntro";
-import { WaitingPage } from "./pages/WaitingPage/WaitingPage";
+import { SurveyPage } from "@/components/SurveyPage/SurveyPage";
+import { MoodMenu } from "@/pages/MoodMenu/MoodMenu";
+import { MoodMenuIntro } from "@/pages/MoodMenuIntro/MoodMenuIntro";
+import { WaitingPage } from "@/pages/WaitingPage/WaitingPage";
 
 function AppRoutes() {
   const { step } = useIntroStore();

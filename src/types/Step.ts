@@ -13,7 +13,6 @@ export enum Step {
   MOOD_MENU_INTRO = "MOOD_MENU_INTRO",
   MOOD_MENU = "MOOD_MENU",
   WAITING_BACKEND = "WAITING_BACKEND",
-  // ... 可以继续添加更多步骤
 }
 
 export const STEP_ORDER: Step[] = [
