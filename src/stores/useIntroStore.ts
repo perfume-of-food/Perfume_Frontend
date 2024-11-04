@@ -1,18 +1,11 @@
 import { create } from "zustand";
-import {
-  conversation,
-  stepMessageRanges,
-} from "@/constants/conversationConstants";
+import { conversationFlow } from "@/constants/conversationConstants";
 import { Step, getNextStep } from "@/types/Step";
 
 import { MoodItem, grayscaleMoodList } from "@/constants/moodConstants";
 
 interface IntroState {
   step: Step;
-  conversation: {
-    currentIndex: number;
-    messages: string[];
-  };
   setStep: (step: Step) => void;
   moveToNextStep: () => void;
   getCurrentStepMessages: (step: Step) => string[];
@@ -28,10 +21,6 @@ interface IntroState {
 
 export const useIntroStore = create<IntroState>((set, get) => ({
   step: Step.GREETING,
-  conversation: {
-    currentIndex: 0,
-    messages: conversation,
-  },
   setStep: (step) => set({ step }),
   moveToNextStep: () =>
     set((state) => {
@@ -39,8 +28,10 @@ export const useIntroStore = create<IntroState>((set, get) => ({
       return next ? { step: next } : {};
     }),
   getCurrentStepMessages: (step) => {
-    const range = stepMessageRanges[step];
-    return range ? conversation.slice(range.start, range.end + 1) : [];
+    const range = conversationFlow.find(
+      (section) => section.step === step
+    )?.messages;
+    return range ?? [];
   },
   userName: "",
   setUserName: (userName) => set({ userName: userName }),
