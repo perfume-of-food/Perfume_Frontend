@@ -17,6 +17,8 @@ interface GameState {
   setEmotionValue: (value: number) => void;
   getPrimaryMood: () => MoodItem;
   getRelatedMoods: () => MoodItem[];
+  printTaskId: number;
+  setPrintTaskId: (taskId: number) => void;
 }
 
 export const useGameManagerStore = create<GameState>((set, get) => ({
@@ -77,4 +79,6 @@ export const useGameManagerStore = create<GameState>((set, get) => ({
 
     return [primaryMood, prevMood, nextMood];
   },
+  printTaskId: 0,
+  setPrintTaskId: (taskId) => set({ printTaskId: taskId }),
 }));

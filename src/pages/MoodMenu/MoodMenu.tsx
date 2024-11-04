@@ -8,12 +8,39 @@ import ConfirmPanel from "@/components/ConfirmPanel/ConfirmPanel";
 import owl_stick from "@/assets/owl_stick.png";
 import { useMoodMenuStore } from "@/stores/useMoodMenuStore";
 import { useGameManagerStore } from "@/stores/useGameManagerStore";
-import { FoodCategory } from "@/types/Mood";
+import { FoodCategory, Mood, MoodFoodPairings } from "@/types/Mood";
+import { startPrint } from "@/api/PrintService";
 
 export function MoodMenu() {
-  const { moveToNextStep } = useGameManagerStore();
-  const { selectedFood, setDescriptionFlash, selectedCategory } = useMoodMenuStore();
+  const { userName, moveToNextStep, setPrintTaskId } = useGameManagerStore();
+  const { selectedFood, setDescriptionFlash, selectedCategory } =
+    useMoodMenuStore();
   const [showConfirmPanel, setShowConfirmPanel] = useState(false);
+
+  const handleConfirm = async () => {
+    // 从 MoodFoodPairings 中找到对应的心情
+    const mood = Object.entries(MoodFoodPairings).find(
+      ([_mood, food]) => food === selectedFood!.title
+    )?.[0] as Mood;
+
+    try {
+      const taskId = Date.now();
+      const res = await startPrint({
+        customerName: userName,
+        perfume: mood,
+        food: selectedFood!.title,
+        task_id: taskId,
+      });
+      if (res.status === 200) {
+        setPrintTaskId(taskId);
+        moveToNextStep();
+      } else {
+        console.error("Print failed:", res.data.message);
+      }
+    } catch (error) {
+      console.error("Print failed:", error);
+    }
+  };
 
   return (
     <div className="w-screen h-screen border-x-[32px] border-y-[28px] border-black">
@@ -65,8 +92,7 @@ export function MoodMenu() {
               <div className="absolute top-0 left-0 pt-2 pl-4 pr-6 font-dot text-beige text-2xl whitespace-pre-line">
                 {selectedCategory === FoodCategory.RECOMMENDED
                   ? "これまでの経験から君におすすめする三品だよ。\n\nもちろん他の料理も自由に選んでいい。"
-                  : "君がどの料理を選ぶのか…楽しみだな。"
-                }
+                  : "君がどの料理を選ぶのか…楽しみだな。"}
               </div>
             </div>
             <img
@@ -100,7 +126,7 @@ export function MoodMenu() {
         <ConfirmPanel
           title={selectedFood?.title || ""}
           onClose={() => setShowConfirmPanel(false)}
-          onConfirm={moveToNextStep}
+          onConfirm={handleConfirm}
           showButtons={true}
         />
       )}

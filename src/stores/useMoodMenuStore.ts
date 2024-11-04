@@ -1,12 +1,12 @@
 import { create } from "zustand";
-import { MoodFoodPairings, FoodCategory } from "../types/Mood";
+import { MoodFoodPairings, FoodCategory, Food } from "../types/Mood";
 import { useGameManagerStore } from "./useGameManagerStore";
 import { FoodItem, foodList } from "../constants/foodConstants";
 
 interface MoodMenuState {
   selectedCategory: string;
   selectedFood: {
-    title: string;
+    title: Food;
     description: string;
   } | null;
 
@@ -14,7 +14,7 @@ interface MoodMenuState {
 
   // actions
   setSelectedCategory: (category: string) => void;
-  setselectedFood: (description: string, title: string) => void;
+  setselectedFood: (description: string, title: Food) => void;
   setDescriptionFlash: (isFlashing: boolean) => void;
 
   getRecommendedFoods: () => FoodItem[];

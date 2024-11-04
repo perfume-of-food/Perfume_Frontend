@@ -5,15 +5,28 @@ import styles from "./PerfumePrinting.module.css";
 
 import { useEffect } from "react";
 import { useGameManagerStore } from "@/stores/useGameManagerStore";
-import { Step } from "@/types/Step";
+
+import { getPrintStatus } from "@/api/PrintService";
+import { PrintStatus } from "@/types/Api";
 
 export function PerfumePrinting() {
-  const { setStep } = useGameManagerStore();
+  const { printTaskId, moveToNextStep } = useGameManagerStore();
 
   useEffect(() => {
-    const timer = setTimeout(() => setStep(Step.ENDING), 3000);
-    return () => clearTimeout(timer);
-  });
+    const pollInterval = setInterval(async () => {
+      try {
+        const { data } = await getPrintStatus(printTaskId);
+        if (data.status === PrintStatus.COMPLETED) {
+          moveToNextStep();
+          clearInterval(pollInterval);
+        }
+      } catch (error) {
+        console.error("Error polling print status:", error);
+      }
+    }, 1000);
+
+    return () => clearInterval(pollInterval);
+  }, [printTaskId, moveToNextStep]);
 
   return (
     <div className="w-screen h-screen border-x-[32px] border-y-[28px] border-black">
