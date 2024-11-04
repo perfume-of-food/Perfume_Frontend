@@ -114,7 +114,7 @@ export const InputPanel = ({ onClose, onConfirm }: InputPanelProps) => {
                 animation: isJumping ? "jumpUp 300ms ease-in-out" : "none",
               }}
             >
-              君はどの様に呼ばれたいですか？：
+              君はどのように呼ばれたいですか？：
             </span>
             <div className="relative w-[75%] h-[50%]">
               <svg

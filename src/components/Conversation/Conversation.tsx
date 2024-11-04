@@ -33,35 +33,32 @@ export const Conversation = () => {
 
   return (
     <div className="container">
-      <div className="text-box" onClick={handleClick}>
-        <div className="svg-container">
-          <svg
-            className="top-left-svg"
-            preserveAspectRatio="none"
-            viewBox="0 0 247 87"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M5.18924 5.38553L9.86979 0.5H237.13L246.5 10.2801V76.7199L241.811 81.6145L237.13 86.5H9.86979L5.18924 81.6145L0.5 76.7199V10.2801L5.18924 5.38553Z"
-              fill="#FEA237"
-              fillOpacity="0.2"
-              stroke="#FEA237"
-            />
-            <text
-              className="owner font-serif"
-              x="50%"
-              y="50%"
-              textAnchor="middle"
-              dominantBaseline="middle"
-              textLength="30%"
-              lengthAdjust="spacing"
+      <div
+        className="w-[809px] h-[178px] flex justify-center items-center relative"
+        onClick={handleClick}
+      >
+        <div className="absolute -top-[64px] left-0 w-[190px] h-[64px]">
+          <div className="flex w-full h-full justify-center items-center relative">
+            <svg
+              className="w-full h-full"
+              preserveAspectRatio="none"
+              viewBox="0 0 247 87"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              {step === Step.GREETING || step === Step.GREETING_CHOICE
-                ? "???"
+              <path
+                d="M5.18924 5.38553L9.86979 0.5H237.13L246.5 10.2801V76.7199L241.811 81.6145L237.13 86.5H9.86979L5.18924 81.6145L0.5 76.7199V10.2801L5.18924 5.38553Z"
+                fill="#FEA237"
+                fillOpacity="0.2"
+                stroke="#FEA237"
+              />
+            </svg>
+            <span className="text-white text-3xl font-serif w-20 absolute text-justify [text-align-last:justify] [-webkit-text-stroke:_2px_#FEA237;] [paint-order:stroke_fill] pointer-events-none">
+              {[Step.GREETING, Step.GREETING_CHOICE].includes(step)
+                ? "? ? ?"
                 : "店長"}
-            </text>
-          </svg>
+            </span>
+          </div>
         </div>
 
         <div className="absolute w-full h-full flex justify-center items-center bg-conversation">

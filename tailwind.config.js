@@ -4,7 +4,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      serif: ["YuMincho", "Yu Mincho"],
+      serif: ["Hiragino Mincho Pro"],
       playfair: ["Playfair Display SC Regular"],
       dot: ["DotGothic16 Regular"],
     },

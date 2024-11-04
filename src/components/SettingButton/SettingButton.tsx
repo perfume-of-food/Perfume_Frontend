@@ -17,8 +17,8 @@ export const SettingButton = () => {
           stroke="#FEA237"
         />
       </svg>
-      <span className="text-white text-3xl font-serif w-1/3 inline-block absolute  [text-align-last:justify] [-webkit-text-stroke:_2px_#FEA237;]  [paint-order:stroke_fill] pointer-events-none">
-        HOME
+      <span className="text-white text-3xl font-serif w-[38%] absolute flex justify-center items-center [-webkit-text-stroke:_2px_#FEA237;] [paint-order:stroke_fill] pointer-events-none">
+        ホーム
       </span>
     </div>
   );

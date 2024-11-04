@@ -42,7 +42,7 @@ export function Intro() {
           )}
           {step === Step.GREETING_CHOICE && <GreetingChoice />}
           {step === Step.NAME_ENTRY && (
-            <HintText>名前を入力してください</HintText>
+            <HintText>右のボタンを押して入力してください</HintText>
           )}
         </div>
         {/* 右下: 选择按钮区域 */}
