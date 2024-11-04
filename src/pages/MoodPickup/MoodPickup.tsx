@@ -5,9 +5,9 @@ import { DetermineButton } from "@/components/DetermineButton/DetermineButton";
 import ConfirmPanel from "@/components/ConfirmPanel/ConfirmPanel";
 import { useMoodPanelStore } from "@/stores/useMoodPanelStore";
 import { useState } from "react";
-import { useIntroStore } from "@/stores/useIntroStore";
+import { useGameManagerStore } from "@/stores/useGameManagerStore";
 export function MoodPickup() {
-  const { moveToNextStep } = useIntroStore();
+  const { moveToNextStep } = useGameManagerStore();
   const { selectedMood, setDescriptionFlash } = useMoodPanelStore();
   const [showConfirmPanel, setShowConfirmPanel] = useState(false);
 

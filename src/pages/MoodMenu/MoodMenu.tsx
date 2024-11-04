@@ -7,11 +7,11 @@ import { FoodDescription } from "@/components/FoodDescription/FoodDescription";
 import ConfirmPanel from "@/components/ConfirmPanel/ConfirmPanel";
 import owl_stick from "@/assets/owl_stick.png";
 import { useMoodMenuStore } from "@/stores/useMoodMenuStore";
-import { useIntroStore } from "@/stores/useIntroStore";
+import { useGameManagerStore } from "@/stores/useGameManagerStore";
 import { FoodCategory } from "@/types/Mood";
 
 export function MoodMenu() {
-  const { moveToNextStep } = useIntroStore();
+  const { moveToNextStep } = useGameManagerStore();
   const { selectedFood, setDescriptionFlash, selectedCategory } = useMoodMenuStore();
   const [showConfirmPanel, setShowConfirmPanel] = useState(false);
 

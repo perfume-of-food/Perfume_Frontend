@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useIntroStore } from "@/stores/useIntroStore";
+import { useGameManagerStore } from "@/stores/useGameManagerStore";
 
 interface InputPanelProps {
   onClose: () => void;
@@ -12,7 +12,7 @@ enum InputPanelState {
 }
 
 export const InputPanel = ({ onClose, onConfirm }: InputPanelProps) => {
-  const { userName, setUserName } = useIntroStore();
+  const { userName, setUserName } = useGameManagerStore();
   const [panelState, setPanelState] = useState<InputPanelState>(
     InputPanelState.INPUT
   );

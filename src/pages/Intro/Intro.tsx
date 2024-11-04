@@ -5,14 +5,14 @@ import { Conversation } from "@/components/Conversation/Conversation";
 import { HintText } from "@/components/HintText/HintText";
 import { NameEntryButton } from "@/components/NameEntryButton/NameEntryButton";
 
-import { useIntroStore } from "@/stores/useIntroStore";
+import { useGameManagerStore } from "@/stores/useGameManagerStore";
 import { Step } from "@/types/Step";
 import { GreetingChoice } from "@/components/GreetingChoice/GreetingChoice";
 import { useState } from "react";
 import { InputPanel } from "@/components/InputPanel/InputPanel";
 
 export function Intro() {
-  const { step, moveToNextStep } = useIntroStore();
+  const { step, moveToNextStep } = useGameManagerStore();
 
   const [showInputPanel, setShowInputPanel] = useState(false);
   return (

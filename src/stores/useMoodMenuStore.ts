@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { MoodFoodPairings, FoodCategory } from "../types/Mood";
-import { useIntroStore } from "./useIntroStore";
+import { useGameManagerStore } from "./useGameManagerStore";
 import { FoodItem, foodList } from "../constants/foodConstants";
 
 interface MoodMenuState {
@@ -33,7 +33,7 @@ export const useMoodMenuStore = create<MoodMenuState>((set) => ({
   setDescriptionFlash: (isFlashing) =>
     set({ isDescriptionFlashing: isFlashing }),
   getRecommendedFoods: () => {
-    const relatedMoods = useIntroStore.getState().getRelatedMoods();
+    const relatedMoods = useGameManagerStore.getState().getRelatedMoods();
     return relatedMoods.map((mood) => {
       const foodName = MoodFoodPairings[mood.name];
       return foodList.find((food) => food.title === foodName)!;

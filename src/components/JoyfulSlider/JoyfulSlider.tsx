@@ -1,10 +1,10 @@
 import { useMemo } from "react";
 import joyful from "@/assets/joyful.png";
 import sad from "@/assets/sad.png";
-import { useIntroStore } from "@/stores/useIntroStore";
+import { useGameManagerStore } from "@/stores/useGameManagerStore";
 
 export const JoyfulSlider = ({ min = -50, max = 50 }) => {
-  const { joyfulValue, setJoyfulValue } = useIntroStore();
+  const { joyfulValue, setJoyfulValue } = useGameManagerStore();
 
   // 计算两侧光晕强度
   const glowIntensities = useMemo(() => {

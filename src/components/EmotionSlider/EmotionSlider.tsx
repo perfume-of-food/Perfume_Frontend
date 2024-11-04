@@ -1,10 +1,10 @@
 import { useMemo } from "react";
 import hageshi from "@/assets/hageshi.png";
 import heitan from "@/assets/heitan.png";
-import { useIntroStore } from "@/stores/useIntroStore";
+import { useGameManagerStore } from "@/stores/useGameManagerStore";
 
 export const EmotionSlider = ({ min = -50, max = 50 }) => {
-  const { emotionValue, setEmotionValue } = useIntroStore();
+  const { emotionValue, setEmotionValue } = useGameManagerStore();
 
   // 计算两侧光晕强度
   const glowIntensities = useMemo(() => {

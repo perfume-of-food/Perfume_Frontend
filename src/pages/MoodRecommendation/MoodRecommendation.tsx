@@ -1,6 +1,6 @@
 import { SettingButton } from "@/components/SettingButton/SettingButton";
 import { MenuHero } from "@/components/MenuHero/MenuHero";
-import { useIntroStore } from "@/stores/useIntroStore";
+import { useGameManagerStore } from "@/stores/useGameManagerStore";
 import { Conversation } from "@/components/Conversation/Conversation";
 import { HintText } from "@/components/HintText/HintText";
 import { Step } from "@/types/Step";
@@ -11,7 +11,7 @@ import { MoodChoice } from "@/components/MoodChoice/MoodChoice";
 import { MoodChoiceButton } from "@/components/MoodChoiceButton/MoodChoiceButton";
 
 export function MoodRecommendation() {
-  const { step, setStep, moveToNextStep } = useIntroStore();
+  const { step, setStep, moveToNextStep } = useGameManagerStore();
 
   return (
     <div className="w-screen h-screen border-x-[32px] border-y-[28px] border-black">

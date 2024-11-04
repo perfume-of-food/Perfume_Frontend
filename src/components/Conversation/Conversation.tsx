@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Conversation.css";
-import { useIntroStore } from "@/stores/useIntroStore";
+import { useGameManagerStore } from "@/stores/useGameManagerStore";
 import { Step } from "@/types/Step";
 import { formatMessage } from "@/utils/textUtils";
 export const Conversation = () => {
@@ -10,7 +10,7 @@ export const Conversation = () => {
     moveToNextStep,
     userName,
     getPrimaryMood,
-  } = useIntroStore();
+  } = useGameManagerStore();
   const conversation = getCurrentStepMessages(step);
   const [textIndex, setTextIndex] = useState(0);
 

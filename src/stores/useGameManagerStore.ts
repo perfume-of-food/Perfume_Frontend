@@ -4,7 +4,7 @@ import { Step, getNextStep } from "@/types/Step";
 
 import { MoodItem, grayscaleMoodList } from "@/constants/moodConstants";
 
-interface IntroState {
+interface GameState {
   step: Step;
   setStep: (step: Step) => void;
   moveToNextStep: () => void;
@@ -19,7 +19,7 @@ interface IntroState {
   getRelatedMoods: () => MoodItem[];
 }
 
-export const useIntroStore = create<IntroState>((set, get) => ({
+export const useGameManagerStore = create<GameState>((set, get) => ({
   step: Step.GREETING,
   setStep: (step) => set({ step }),
   moveToNextStep: () =>
