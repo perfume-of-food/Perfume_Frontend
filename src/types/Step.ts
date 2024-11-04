@@ -12,8 +12,9 @@ export enum Step {
   MOOD_PICKUP_PANEL = "MOOD_PICKUP_PANEL",
   MOOD_MENU_INTRO = "MOOD_MENU_INTRO",
   MOOD_MENU = "MOOD_MENU",
-  WAITING_BACKEND = "WAITING_BACKEND",
+  PERFUME_PRINTING = "PERFUME_PRINTING",
   ENDING = "ENDING",
+  SURVEY = "SURVEY",
 }
 
 export const STEP_ORDER: Step[] = [
@@ -30,8 +31,9 @@ export const STEP_ORDER: Step[] = [
   Step.MOOD_PICKUP_PANEL,
   Step.MOOD_MENU_INTRO,
   Step.MOOD_MENU,
-  Step.WAITING_BACKEND,
+  Step.PERFUME_PRINTING,
   Step.ENDING,
+  Step.SURVEY,
 ];
 
 export const getNextStep = (currentStep: Step): Step | null => {

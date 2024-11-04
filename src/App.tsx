@@ -12,11 +12,11 @@ import { MoodPickup } from "@/pages/MoodPickup/MoodPickup";
 import { useGameManagerStore } from "@/stores/useGameManagerStore";
 import { Step } from "@/types/Step";
 import { useEffect } from "react";
-import { SurveyPage } from "@/components/SurveyPage/SurveyPage";
+import { Survey } from "@/pages/Survey/Survey";
 import { MoodMenu } from "@/pages/MoodMenu/MoodMenu";
 import { MoodMenuIntro } from "@/pages/MoodMenuIntro/MoodMenuIntro";
-import { WaitingPage } from "@/pages/WaitingPage/WaitingPage";
-
+import { PerfumePrinting } from "@/pages/PerfumePrinting/PerfumePrinting";
+import { Ending } from "@/pages/Ending/Ending";
 function AppRoutes() {
   const { step } = useGameManagerStore();
   const navigate = useNavigate();
@@ -35,8 +35,14 @@ function AppRoutes() {
       case Step.MOOD_MENU:
         navigate("/mood-menu");
         break;
-      case Step.WAITING_BACKEND:
-        navigate("/waiting-backend");
+      case Step.PERFUME_PRINTING:
+        navigate("/perfume-printing");
+        break;
+      case Step.ENDING:
+        navigate("/ending");
+        break;
+      case Step.SURVEY:
+        navigate("/survey");
         break;
     }
   }, [step, navigate]);
@@ -49,8 +55,9 @@ function AppRoutes() {
       <Route path="/mood-pickup" element={<MoodPickup />} />
       <Route path="/mood-menu-intro" element={<MoodMenuIntro />} />
       <Route path="/mood-menu" element={<MoodMenu />} />
-      <Route path="/survey" element={<SurveyPage />} />
-      <Route path="/waiting-backend" element={<WaitingPage />} />
+      <Route path="/perfume-printing" element={<PerfumePrinting />} />
+      <Route path="/ending" element={<Ending />} />
+      <Route path="/survey" element={<Survey />} />
     </Routes>
   );
 }

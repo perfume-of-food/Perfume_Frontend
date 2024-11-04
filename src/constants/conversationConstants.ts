@@ -87,7 +87,7 @@ export const conversationFlow: DialogueSection[] = [
     messages: [],
   },
   {
-    step: Step.WAITING_BACKEND,
+    step: Step.PERFUME_PRINTING,
     messages: [],
   },
   {

@@ -1,9 +1,20 @@
 import { SettingButton } from "@/components/SettingButton/SettingButton";
 import plane from "@/assets/plane.png";
 import receipt from "@/assets/receipt.png";
-import styles from "./WaitingPage.module.css";
+import styles from "./PerfumePrinting.module.css";
 
-export function WaitingPage() {
+import { useEffect } from "react";
+import { useGameManagerStore } from "@/stores/useGameManagerStore";
+import { Step } from "@/types/Step";
+
+export function PerfumePrinting() {
+  const { setStep } = useGameManagerStore();
+
+  useEffect(() => {
+    const timer = setTimeout(() => setStep(Step.ENDING), 3000);
+    return () => clearTimeout(timer);
+  });
+
   return (
     <div className="w-screen h-screen border-x-[32px] border-y-[28px] border-black">
       <div className="grid grid-rows-[repeat(100,1fr)] grid-cols-[repeat(100,1fr)] w-full h-full border-[10px] border-orange bg-black relative">
