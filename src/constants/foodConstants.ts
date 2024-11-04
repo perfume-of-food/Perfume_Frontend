@@ -58,7 +58,7 @@ export const foodList: FoodItem[] = [
     title: Food.ROSE_JELLY,
     img: "/food/rose_jelly.png",
     description:
-      "ちょうどいい甘さで口の中で溶け、ほのかに広がるバラの香りが、静かなひとときを包み込む。",
+      "ちょうどいい甘さが口の中で溶け、ほのかに広がるバラの香りが、静かなひとときを包み込む。",
     id: 6,
     category: FoodCategory.DESSERT,
   },
@@ -84,8 +84,7 @@ export const foodList: FoodItem[] = [
   {
     title: Food.HOT_TEA,
     img: "/food/hot_tea.png",
-    description:
-      "紅茶のほのかな香りと温かみが、静かに心の奥へ安らぎを届ける。",
+    description: "紅茶のほのかな香りと温かみが、静かに心の奥へ安らぎを届ける。",
     id: 9,
     category: FoodCategory.BEVERAGE,
   },
@@ -110,8 +109,7 @@ export const foodList: FoodItem[] = [
   {
     title: Food.COFFEE,
     img: "/food/coffee.png",
-    description:
-      "ほろ苦い香りをまとい、ほのかな甘さが疲れを癒してくれる。",
+    description: "ほろ苦い香りをまとい、ほのかな甘さが疲れを癒してくれる。",
     id: 12,
     category: FoodCategory.BEVERAGE,
   },
@@ -119,8 +117,7 @@ export const foodList: FoodItem[] = [
   {
     title: Food.WINE,
     img: "/food/wine.png",
-    description:
-      "深紅の液体が穏やかに流れ、ほろ苦い果実の香りが立ち昇る。",
+    description: "深紅の液体が穏やかに流れ、ほろ苦い果実の香りが立ち昇る。",
     id: 13,
     category: FoodCategory.BEVERAGE,
   },
@@ -164,8 +161,7 @@ export const foodList: FoodItem[] = [
   {
     title: Food.BITTER_GOURD_SALAD,
     img: "/food/bitter_melon_salad.png",
-    description:
-      "噛むほどに淡い苦みが深まり、口の中でじんわりと広がっていく。",
+    description: "噛むほどに淡い苦みが深まり、口の中でじんわりと広がっていく。",
     id: 18,
     category: FoodCategory.DISH,
   },
@@ -173,8 +169,7 @@ export const foodList: FoodItem[] = [
   {
     title: Food.MEDICINAL_SOUP,
     img: "/food/herb_soup.png",
-    description:
-      "薬草の苦味が何層にも重なり、絶妙な香りが長く残る。",
+    description: "薬草の苦味が何層にも重なり、絶妙な香りが長く残る。",
     id: 19,
     category: FoodCategory.DISH,
   },
@@ -191,8 +186,7 @@ export const foodList: FoodItem[] = [
   {
     title: Food.SPICY_MAPO_TOFU,
     img: "/food/mapo_tofu.png",
-    description:
-      "舌に直接ぶつかる辛さが、一口で顔を熱く染める。",
+    description: "舌に直接ぶつかる辛さが、一口で顔を熱く染める。",
     id: 21,
     category: FoodCategory.DISH,
   },
@@ -209,7 +203,7 @@ export const foodList: FoodItem[] = [
   {
     title: Food.RICE_VINEGAR,
     img: "/food/vinegar.png",
-    description: "「米酢」:発酵した酸味が舌全体を覆い、余韻が静かに残る。",
+    description: "発酵した酸味が舌全体を覆い、余韻が静かに残る。",
     id: 23,
     category: FoodCategory.OTHER,
   },
@@ -217,8 +211,7 @@ export const foodList: FoodItem[] = [
   {
     title: Food.WASABI,
     img: "/food/wasabi.png",
-    description:
-      "鋭い辛みが鼻腔を突き抜け、一瞬で引き締まるような感覚。",
+    description: "鋭い辛みが鼻腔を突き抜け、一瞬で引き締まるような感覚。",
     id: 24,
     category: FoodCategory.OTHER,
   },

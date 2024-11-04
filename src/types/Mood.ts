@@ -47,7 +47,7 @@ export enum Food {
   BITTER_GOURD_SALAD = "ゴーヤサラダ",
   BEER = "ビール",
   MEDICINAL_SOUP = "薬膳スープ",
-  MUSHROOM_SOUP = "きのこスープ",
+  MUSHROOM_SOUP = "?きのこスープ",
   WASABI = "わさび",
   SPICY_MAPO_TOFU = "激辛麻婆豆腐"
 }
