@@ -105,7 +105,7 @@ export function MoodPanel() {
               strokeWidth="3"
               paintOrder="stroke"
             >
-              かなしい
+              へいたん
             </text>
           </g>
           <g>
@@ -120,7 +120,7 @@ export function MoodPanel() {
               strokeWidth="3"
               paintOrder="stroke"
             >
-              へいたん
+              かなしい
             </text>
           </g>
 
