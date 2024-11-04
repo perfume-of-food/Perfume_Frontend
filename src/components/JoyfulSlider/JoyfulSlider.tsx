@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import joyful from "@/assets/joyful.png";
-import sad from "@/assets/sad.png";
+import joyful from "@/assets/slider/joyful.png";
+import sad from "@/assets/slider/sad.png";
 import { useGameManagerStore } from "@/stores/useGameManagerStore";
 
 export const JoyfulSlider = ({ min = -50, max = 50 }) => {

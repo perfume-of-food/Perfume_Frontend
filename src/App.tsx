@@ -23,7 +23,7 @@ function AppRoutes() {
 
   useEffect(() => {
     switch (step) {
-      case Step.MOOD_INTRO:
+      case Step.MOOD_INTRO_START:
         navigate("/mood-recommendation");
         break;
       case Step.MOOD_PICKUP_PANEL:

@@ -1,6 +1,6 @@
 import { SettingButton } from "@/components/SettingButton/SettingButton";
-import plane from "@/assets/plane.png";
-import receipt from "@/assets/receipt.png";
+import plane from "@/assets/menuhero/plane.png";
+import receipt from "@/assets/menuhero/receipt.png";
 import styles from "./PerfumePrinting.module.css";
 
 import { useEffect } from "react";

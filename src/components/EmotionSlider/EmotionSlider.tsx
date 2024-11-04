@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import hageshi from "@/assets/hageshi.png";
-import heitan from "@/assets/heitan.png";
+import hageshi from "@/assets/slider/hageshi.png";
+import heitan from "@/assets/slider/heitan.png";
 import { useGameManagerStore } from "@/stores/useGameManagerStore";
 
 export const EmotionSlider = ({ min = -50, max = 50 }) => {

@@ -36,11 +36,15 @@ export function MoodRecommendation() {
         </div>
         {/* 左下: 空的弹性盒子区域 */}
         <div className="row-[span_22_/_span_22] col-[span_67_/_span_67] border-r-[1px] border-orange">
-          {(step === Step.MOOD_INTRO ||
-            step === Step.MOOD_DESCRIPTION ||
-            step === Step.MOOD_PICKUP_INTRO) && (
-            <HintText>吹き出しをタップして続ける</HintText>
-          )}
+          {[
+            Step.MOOD_INTRO_START,
+            Step.MOOD_INTRO_HAPPY,
+            Step.MOOD_INTRO_ANGRY,
+            Step.MOOD_INTRO_SAD,
+            Step.MOOD_INTRO_END,
+            Step.MOOD_DESCRIPTION,
+            Step.MOOD_PICKUP_INTRO,
+          ].includes(step) && <HintText>吹き出しをタップして続ける</HintText>}
           {step === Step.MOOD_SLIDER_FIRST && <JoyfulSlider />}
           {step === Step.MOOD_SLIDER_SECOND && <EmotionSlider />}
           {step === Step.MOOD_CONFIRMATION && <MoodChoice />}

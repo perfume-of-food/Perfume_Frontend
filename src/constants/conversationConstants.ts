@@ -28,12 +28,24 @@ export const conversationFlow: DialogueSection[] = [
     messages: ["まず君の名前を教えてくれるかな？"],
   },
   {
-    step: Step.MOOD_INTRO,
+    step: Step.MOOD_INTRO_START,
+    messages: ["さて、{userName}さん、最近の君はどんな気持ちで過ごしているかを教えて欲しい。あるいは、過去の心に残る瞬間を思い出してもいいよ。"],
+  },
+  {
+    step: Step.MOOD_INTRO_HAPPY,
+    messages: ["たとえば、誰かと過ごした幸せな時間、"],
+  },
+  {
+    step: Step.MOOD_INTRO_ANGRY,
+    messages: ["激しい喧嘩の時の怒り、"],
+  },
+  {
+    step: Step.MOOD_INTRO_SAD,
+    messages: ["あるいは静かな雨の夜に感じた寂しさなど……"],
+  },
+  {
+    step: Step.MOOD_INTRO_END,
     messages: [
-      "さて、{userName}さん、最近の君はどんな気持ちで過ごしているかを教えて欲しい。あるいは、過去の心に残る瞬間を思い出してもいいよ。",
-      "たとえば、誰かと過ごした幸せな時間、",
-      "激しい喧嘩の時の怒り、",
-      "あるいは静かな雨の夜に感じた寂しさなど……",
       "目を閉じて、静かに感じてみて。",
       "どうだい？感情をそのまま言葉にするのは難しいかもしれないから、まずは感情の二つの基本的な性質から探ってみよう。",
     ],
