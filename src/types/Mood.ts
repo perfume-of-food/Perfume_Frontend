@@ -27,6 +27,7 @@ export enum Mood {
 }
 
 export enum Food {
+  NONE = "無",
   MINT_CANDY = "ハッカ飴",
   SODA = "ソーダ",
   PINEAPPLE_SHAVED_ICE = "パインのかき氷",
@@ -86,4 +87,5 @@ export const MoodFoodPairings: Record<Mood, Food> = {
   [Mood.FEAR]: Food.MUSHROOM_SOUP,
   [Mood.NERVOUS]: Food.WASABI,
   [Mood.ANGRY]: Food.SPICY_MAPO_TOFU,
+  [Mood.NONE]: Food.NONE,
 };
