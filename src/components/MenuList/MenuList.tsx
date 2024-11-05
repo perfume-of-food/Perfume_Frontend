@@ -32,7 +32,9 @@ const MenuList = () => {
 
     if (!container || !scroll) return;
 
-    if (displayFoods.length === 0 || selectedCategory === FoodCategory.OTHER) {
+    if (
+      [FoodCategory.OTHER, FoodCategory.RECOMMENDED].includes(selectedCategory)
+    ) {
       scroll.style.opacity = "0";
     } else {
       scroll.style.opacity = "1";
@@ -49,7 +51,7 @@ const MenuList = () => {
       duration: 0.3,
       ease: "power2.out",
     });
-  }, [selectedCategory, displayFoods.length]);
+  }, [selectedCategory]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -136,7 +138,7 @@ const MenuList = () => {
                   "repeating-linear-gradient(to right, #FFEFD0, #FFEFD0 10px, transparent 10px, transparent 20px)",
               }}
             ></div>
-            <span className="font-dot text-4xl text-beige text-right ">
+            <span className="font-dot text-3xl text-beige text-right ">
               {food.title}
             </span>
           </div>

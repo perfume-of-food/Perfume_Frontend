@@ -203,7 +203,7 @@ export const foodList: FoodItem[] = [
   {
     title: Food.RICE_VINEGAR,
     img: "/food/vinegar.png",
-    description: "発酵した酸味が舌全体を覆い、余韻が静かに残る。",
+    description: "鋭い激酸が舌を貫き、ほのかな苦味が後を引く。",
     id: 23,
     category: FoodCategory.OTHER,
   },

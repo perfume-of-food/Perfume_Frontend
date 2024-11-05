@@ -43,7 +43,7 @@ export enum Food {
   WATER = "水",
   COFFEE = "コーヒー",
   CIGARETTE = "たばこ",
-  RICE_VINEGAR = "米酢",
+  RICE_VINEGAR = "激スッパオレンジ",
   WINE = "ワイン",
   BITTER_GOURD_SALAD = "ゴーヤサラダ",
   BEER = "ビール",
