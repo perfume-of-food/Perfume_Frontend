@@ -3,7 +3,10 @@ import { FoodCategory } from "@/types/Mood";
 import { useMoodMenuStore } from "@/stores/useMoodMenuStore";
 import { useGameManagerStore } from "@/stores/useGameManagerStore";
 import { useMoodPanelStore } from "@/stores/useMoodPanelStore";
-const Menulist = () => {
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+
+const MenuList = () => {
   const {
     selectedCategory,
     selectedFood,
@@ -15,13 +18,78 @@ const Menulist = () => {
 
   const baseMoodItem = selectedMoodItem ?? getPrimaryMoodItem();
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const displayFoods =
+    selectedCategory === FoodCategory.RECOMMENDED
+      ? getRecommendedFoods(baseMoodItem)
+      : foodList.filter((food) => food.category === selectedCategory);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const scroll = scrollRef.current;
+
+    if (!container || !scroll) return;
+
+    if (displayFoods.length === 0 || selectedCategory === FoodCategory.OTHER) {
+      scroll.style.opacity = "0";
+    } else {
+      scroll.style.opacity = "1";
+    }
+
+    gsap.to(container, {
+      scrollTop: 0,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+
+    gsap.to(scroll, {
+      y: 0,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  }, [selectedCategory, displayFoods.length]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const scroll = scrollRef.current;
+
+    if (!container || !scroll) return;
+
+    const updateScroll = () => {
+      const containerHeight = container.clientHeight;
+      const scrollHeight = container.scrollHeight;
+      const scrollTop = container.scrollTop;
+
+      const scrollProgress = scrollTop / (scrollHeight - containerHeight);
+      const maxY = containerHeight - scroll.clientHeight;
+
+      gsap.to(scroll, {
+        y: maxY * scrollProgress,
+        duration: 0,
+      });
+    };
+
+    container.addEventListener("scroll", updateScroll);
+
+    return () => {
+      container.removeEventListener("scroll", updateScroll);
+    };
+  }, []);
+
   return (
     <div className="relative w-full h-full overflow-x-hidden">
-      <div className="relative px-5 py-2 overflow-y-scroll h-full">
-        {(selectedCategory === FoodCategory.RECOMMENDED
-          ? getRecommendedFoods(baseMoodItem)
-          : foodList.filter((food) => food.category === selectedCategory)
-        ).map((food) => (
+      <div
+        ref={scrollRef}
+        className="absolute top-0 right-[2px] w-4 h-40 rounded-full border-[1px] border-orange bg-orange bg-opacity-20 opacity-0"
+      ></div>
+
+      <div
+        ref={containerRef}
+        className="relative px-5 py-2 overflow-y-scroll h-full hidden-scrollbar"
+      >
+        {displayFoods.map((food) => (
           <div
             key={food.id}
             className="w-full flex justify-between items-center"
@@ -78,4 +146,4 @@ const Menulist = () => {
   );
 };
 
-export default Menulist;
+export default MenuList;

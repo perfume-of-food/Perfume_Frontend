@@ -1,4 +1,5 @@
 export enum Mood {
+  NONE = "無",
   AMAZEMENT = "驚愕",
   SURPRISE = "サプライズ",
   EXCITEMENT = "ワクワク",

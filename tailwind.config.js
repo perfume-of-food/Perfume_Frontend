@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import daisyui from "daisyui";
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -16,10 +17,10 @@ export default {
       },
       animation: {
         // 自定义 bounce 动画，1.5s 持续时间，可调整
-        "bouncing": "bouncing 1.5s infinite ease-in-out",
+        bouncing: "bouncing 1.5s infinite ease-in-out",
       },
       keyframes: {
-        "bouncing": {
+        bouncing: {
           "0%, 100%": { transform: "translateY(10)" },
           "50%": { transform: "translateY(-20px)" }, // 控制弹跳高度为10px
         },

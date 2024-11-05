@@ -2,7 +2,11 @@ import { create } from "zustand";
 import { conversationFlow } from "@/constants/conversationConstants";
 import { Step, getNextStep } from "@/types/Step";
 
-import { MoodItem, grayscaleMoodList } from "@/constants/moodConstants";
+import {
+  MoodItem,
+  grayscaleMoodList,
+  noneMoodItem,
+} from "@/constants/moodConstants";
 
 interface GameState {
   step: Step;
@@ -43,6 +47,12 @@ export const useGameManagerStore = create<GameState>((set, get) => ({
   setEmotionValue: (value) => set({ emotionValue: value }),
   getPrimaryMoodItem: () => {
     const state = get();
+    
+    // Return noneMoodItem when both values are 0
+    if (state.joyfulValue === 0 && state.emotionValue === 0) {
+      return noneMoodItem;
+    }
+
     const distances = grayscaleMoodList.map((mood) => ({
       ...mood,
       distance: Math.sqrt(
@@ -56,6 +66,11 @@ export const useGameManagerStore = create<GameState>((set, get) => ({
   },
 
   getRelatedMoodItems: (baseMoodItem: MoodItem) => {
+    // Return empty array if baseMoodItem is noneMoodItem
+    if (baseMoodItem.name === noneMoodItem.name) {
+      return [];
+    }
+
     const prevId = baseMoodItem.id === 1 ? 24 : baseMoodItem.id - 1;
     const nextId = baseMoodItem.id === 24 ? 1 : baseMoodItem.id + 1;
 
