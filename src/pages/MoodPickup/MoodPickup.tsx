@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useGameManagerStore } from "@/stores/useGameManagerStore";
 export function MoodPickup() {
   const { moveToNextStep } = useGameManagerStore();
-  const { selectedMood, setDescriptionFlash } = useMoodPanelStore();
+  const { selectedMoodItem, setDescriptionFlash } = useMoodPanelStore();
   const [showConfirmPanel, setShowConfirmPanel] = useState(false);
 
   return (
@@ -43,7 +43,7 @@ export function MoodPickup() {
         <div className="row-[span_22_/_span_22] col-[span_33_/_span_33]">
           <DetermineButton
             onClick={() => {
-              if (selectedMood) {
+              if (selectedMoodItem) {
                 setShowConfirmPanel(true);
               } else {
                 setDescriptionFlash(true);
@@ -57,7 +57,7 @@ export function MoodPickup() {
       </div>
       {showConfirmPanel && (
         <ConfirmPanel
-          title={selectedMood}
+          title={selectedMoodItem?.name ?? ""}
           onClose={() => {
             setShowConfirmPanel(false);
           }}

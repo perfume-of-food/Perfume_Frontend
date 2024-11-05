@@ -4,7 +4,7 @@ import { grayscaleMoodList } from "@/constants/moodConstants";
 import owl_roundhead from "@/assets/owl_roundhead.png";
 
 export function MoodPanel() {
-  const { selectedMood, setSelectedMood } = useMoodPanelStore();
+  const { selectedMoodItem, setSelectedMoodItem } = useMoodPanelStore();
 
   const viewBoxSize = 100; // 控制 viewBox 的边长
   const centerX = viewBoxSize / 2;
@@ -136,7 +136,8 @@ export function MoodPanel() {
                 ? "end"
                 : "start";
 
-            const selected = selectedMood === grayscaleMoodList[index].name;
+            const selected =
+              selectedMoodItem?.name === grayscaleMoodList[index].name;
 
             return (
               <g key={index}>
@@ -146,7 +147,7 @@ export function MoodPanel() {
                   cy={point.y}
                   r="1"
                   fill={selected ? "#FEA237" : grayscaleMoodList[index].color}
-                  onClick={() => setSelectedMood(grayscaleMoodList[index].name)}
+                  onClick={() => setSelectedMoodItem(grayscaleMoodList[index])}
                 />
                 <text
                   className="font-dot cursor-pointer transition-all duration-200"
@@ -159,7 +160,7 @@ export function MoodPanel() {
                   dominantBaseline="middle"
                   strokeWidth="0.05"
                   stroke={selected ? "#FEA237" : "#000000"}
-                  onClick={() => setSelectedMood(grayscaleMoodList[index].name)}
+                  onClick={() => setSelectedMoodItem(grayscaleMoodList[index])}
                 >
                   {grayscaleMoodList[index].name}
                 </text>

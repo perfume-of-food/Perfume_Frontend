@@ -9,7 +9,7 @@ export const Conversation = () => {
     getCurrentStepMessages,
     moveToNextStep,
     userName,
-    getPrimaryMood,
+    getPrimaryMoodItem,
   } = useGameManagerStore();
   const conversation = getCurrentStepMessages(step);
   const [textIndex, setTextIndex] = useState(0);
@@ -73,8 +73,8 @@ export const Conversation = () => {
             {conversation[textIndex] &&
               formatMessage(conversation[textIndex], {
                 userName,
-                primaryMood: getPrimaryMood().name,
-                primaryMoodDesc: getPrimaryMood().desc,
+                primaryMood: getPrimaryMoodItem().name,
+                primaryMoodDesc: getPrimaryMoodItem().desc,
               })}
           </span>
         </div>

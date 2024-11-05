@@ -2,9 +2,10 @@ import { create } from "zustand";
 import { MoodFoodPairings, FoodCategory, Food } from "../types/Mood";
 import { useGameManagerStore } from "./useGameManagerStore";
 import { FoodItem, foodList } from "../constants/foodConstants";
+import { MoodItem } from "@/constants/moodConstants";
 
 interface MoodMenuState {
-  selectedCategory: string;
+  selectedCategory: FoodCategory;
   selectedFood: {
     title: Food;
     description: string;
@@ -13,11 +14,11 @@ interface MoodMenuState {
   isDescriptionFlashing: boolean;
 
   // actions
-  setSelectedCategory: (category: string) => void;
+  setSelectedCategory: (category: FoodCategory) => void;
   setselectedFood: (description: string, title: Food) => void;
   setDescriptionFlash: (isFlashing: boolean) => void;
 
-  getRecommendedFoods: () => FoodItem[];
+  getRecommendedFoods: (baseMoodItem: MoodItem) => FoodItem[];
 }
 
 export const useMoodMenuStore = create<MoodMenuState>((set) => ({
@@ -32,8 +33,10 @@ export const useMoodMenuStore = create<MoodMenuState>((set) => ({
     set({ selectedFood: { title, description } }),
   setDescriptionFlash: (isFlashing) =>
     set({ isDescriptionFlashing: isFlashing }),
-  getRecommendedFoods: () => {
-    const relatedMoods = useGameManagerStore.getState().getRelatedMoods();
+  getRecommendedFoods: (baseMoodItem: MoodItem) => {
+    const relatedMoods = useGameManagerStore
+      .getState()
+      .getRelatedMoodItems(baseMoodItem);
     return relatedMoods.map((mood) => {
       const foodName = MoodFoodPairings[mood.name];
       return foodList.find((food) => food.title === foodName)!;

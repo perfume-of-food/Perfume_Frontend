@@ -1,17 +1,17 @@
 import { create } from "zustand";
-import { Mood } from "../types/Mood";
+import { MoodItem } from "@/constants/moodConstants";
 
 interface MoodState {
-  selectedMood: Mood | null;
+  selectedMoodItem: MoodItem | null;
   isDescriptionFlashing: boolean;
-  setSelectedMood: (mood: Mood) => void;
+  setSelectedMoodItem: (moodItem: MoodItem) => void;
   setDescriptionFlash: (isFlashing: boolean) => void;
 }
 
 export const useMoodPanelStore = create<MoodState>((set) => ({
-  selectedMood: null,
+  selectedMoodItem: null,
   isDescriptionFlashing: false,
-  setSelectedMood: (mood) => set({ selectedMood: mood }),
+  setSelectedMoodItem: (moodItem) => set({ selectedMoodItem: moodItem }),
   setDescriptionFlash: (isFlashing) =>
     set({ isDescriptionFlashing: isFlashing }),
 }));

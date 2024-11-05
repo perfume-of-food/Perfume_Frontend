@@ -15,8 +15,8 @@ interface GameState {
   setJoyfulValue: (value: number) => void;
   emotionValue: number;
   setEmotionValue: (value: number) => void;
-  getPrimaryMood: () => MoodItem;
-  getRelatedMoods: () => MoodItem[];
+  getPrimaryMoodItem: () => MoodItem;
+  getRelatedMoodItems: (baseMoodItem: MoodItem) => MoodItem[];
   printTaskId: number;
   setPrintTaskId: (taskId: number) => void;
 }
@@ -41,7 +41,7 @@ export const useGameManagerStore = create<GameState>((set, get) => ({
   setJoyfulValue: (value) => set({ joyfulValue: value }),
   emotionValue: 0,
   setEmotionValue: (value) => set({ emotionValue: value }),
-  getPrimaryMood: () => {
+  getPrimaryMoodItem: () => {
     const state = get();
     const distances = grayscaleMoodList.map((mood) => ({
       ...mood,
@@ -55,29 +55,14 @@ export const useGameManagerStore = create<GameState>((set, get) => ({
     return grayscaleMoodList.filter((mood) => mood.id === sortedMoods[0].id)[0];
   },
 
-  getRelatedMoods: () => {
-    const state = get();
-    const distances = grayscaleMoodList.map((mood) => ({
-      ...mood,
-      distance: Math.sqrt(
-        Math.pow(state.joyfulValue - mood.x, 2) +
-          Math.pow(state.emotionValue - mood.y, 2)
-      ),
-    }));
+  getRelatedMoodItems: (baseMoodItem: MoodItem) => {
+    const prevId = baseMoodItem.id === 1 ? 24 : baseMoodItem.id - 1;
+    const nextId = baseMoodItem.id === 24 ? 1 : baseMoodItem.id + 1;
 
-    const sortedMoods = distances.sort((a, b) => a.distance - b.distance);
-    const primaryMoodId = sortedMoods[0].id;
-
-    const prevId = primaryMoodId === 1 ? 24 : primaryMoodId - 1;
-    const nextId = primaryMoodId === 24 ? 1 : primaryMoodId + 1;
-
-    const primaryMood = grayscaleMoodList.find(
-      (mood) => mood.id === primaryMoodId
-    )!;
     const prevMood = grayscaleMoodList.find((mood) => mood.id === prevId)!;
     const nextMood = grayscaleMoodList.find((mood) => mood.id === nextId)!;
 
-    return [primaryMood, prevMood, nextMood];
+    return [baseMoodItem, prevMood, nextMood];
   },
   printTaskId: 0,
   setPrintTaskId: (taskId) => set({ printTaskId: taskId }),

@@ -1,6 +1,8 @@
 import { foodList } from "@/constants/foodConstants";
-
+import { FoodCategory } from "@/types/Mood";
 import { useMoodMenuStore } from "@/stores/useMoodMenuStore";
+import { useGameManagerStore } from "@/stores/useGameManagerStore";
+import { useMoodPanelStore } from "@/stores/useMoodPanelStore";
 const Menulist = () => {
   const {
     selectedCategory,
@@ -8,12 +10,16 @@ const Menulist = () => {
     setselectedFood,
     getRecommendedFoods,
   } = useMoodMenuStore();
+  const { selectedMoodItem } = useMoodPanelStore();
+  const { getPrimaryMoodItem } = useGameManagerStore();
+
+  const baseMoodItem = selectedMoodItem ?? getPrimaryMoodItem();
 
   return (
     <div className="relative w-full h-full overflow-x-hidden">
       <div className="relative px-5 py-2 overflow-y-scroll h-full">
-        {(selectedCategory === "おすすめ"
-          ? getRecommendedFoods()
+        {(selectedCategory === FoodCategory.RECOMMENDED
+          ? getRecommendedFoods(baseMoodItem)
           : foodList.filter((food) => food.category === selectedCategory)
         ).map((food) => (
           <div
