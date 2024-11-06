@@ -24,13 +24,13 @@ export const HomeMenuButton = () => {
       >
         <HexagonalFrame interactive={true} />
         <span className="text-3xl text-white font-serif absolute text-center [-webkit-text-stroke:_2px_#FEA237;] [paint-order:stroke_fill] pointer-events-none">
-          使用説明
+          注意事項
         </span>
       </div>
 
       {showInstructions && (
         <Instruction
-          title="使用説明"
+          title="注意事項"
           onClose={() => setShowInstructions(false)}
         />
       )}
