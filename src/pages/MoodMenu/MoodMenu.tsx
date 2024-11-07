@@ -8,20 +8,28 @@ import ConfirmPanel from "@/components/ConfirmPanel/ConfirmPanel";
 import owl_stick from "@/assets/owl_stick.png";
 import { useMoodMenuStore } from "@/stores/useMoodMenuStore";
 import { useGameManagerStore } from "@/stores/useGameManagerStore";
-import { FoodCategory, Mood, MoodFoodPairings } from "@/types/Mood";
+import { FoodCategory, Mood } from "@/types/Mood";
 import { startPrint } from "@/api/PrintService";
+import { noneMoodItem } from "@/constants/moodConstants";
 
 export function MoodMenu() {
-  const { userName, moveToNextStep, setPrintTaskId } = useGameManagerStore();
-  const { selectedFood, setDescriptionFlash, selectedCategory } =
-    useMoodMenuStore();
+  const { userName, moveToNextStep, setPrintTaskId, getPrimaryMoodItem } =
+    useGameManagerStore();
+  const {
+    selectedFood,
+    setDescriptionFlash,
+    selectedCategory,
+    getMoodForSelectedFood,
+  } = useMoodMenuStore();
   const [showConfirmPanel, setShowConfirmPanel] = useState(false);
 
   const handleConfirm = async () => {
-    // 从 MoodFoodPairings 中找到对应的心情
-    const mood = Object.entries(MoodFoodPairings).find(
-      ([_mood, food]) => food === selectedFood!.title
-    )?.[0] as Mood;
+    let mood: Mood | null  = null;
+    if (getPrimaryMoodItem() === noneMoodItem) {
+      mood = noneMoodItem.name;
+    } else {
+      mood = getMoodForSelectedFood()!;
+    }
 
     try {
       const taskId = Date.now();
@@ -71,14 +79,14 @@ export function MoodMenu() {
               >
                 <mask id="path-1-inside-1_241_69" fill="white">
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M237.344 0H9.65638L0 25.8354V197.165L9.65638 223H173L187.289 268.75L201.579 223H237.344L247 197.165V25.8354L237.344 0Z"
                   />
                 </mask>
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M237.344 0H9.65638L0 25.8354V197.165L9.65638 223H173L187.289 268.75L201.579 223H237.344L247 197.165V25.8354L237.344 0Z"
                   fill="#FEA237"
                   fillOpacity="0.2"
