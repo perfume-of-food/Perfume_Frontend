@@ -18,7 +18,12 @@ const Header = () => {
         <li key={index} className="relative flex w-[180px] h-full">
           <button
             onClick={() => setSelectedCategory(category.title)}
-            className={`text-white [-webkit-text-stroke:_0.6px_#FEA237;] [paint-order:stroke fill] text-3xl font-serif text-center relative z-10 w-full h-full flex items-center justify-center`}
+            style={
+              {
+                opacity: category.title === selectedCategory ? 1 : 0.6,
+              }
+            }
+            className="text-white [-webkit-text-stroke:_0.6px_#FEA237;] [paint-order:stroke fill] text-3xl font-serif text-center relative z-10 w-full h-full flex items-center justify-center"
           >
             {category.title}
           </button>
@@ -32,11 +37,13 @@ const Header = () => {
             <path
               d="M5.18924 5.38553L9.86979 0.5H237.13L246.5 10.2801V76.7199L241.811 81.6145L237.13 86.5H9.86979L5.18924 81.6145L0.5 76.7199V10.2801L5.18924 5.38553Z"
               fill="#FEA237"
+              stroke="#FEA237"
+              strokeWidth="1"
               style={{
                 fillOpacity: category.title === selectedCategory ? 0.5 : 0.2,
-                strokeOpacity: 1,
+                strokeOpacity: category.title === selectedCategory ? 1 : 0.5,
+                strokeWidth: category.title === selectedCategory ? 1 : 0.3,
               }}
-              stroke="#FEA237"
             />
           </svg>
         </li>
