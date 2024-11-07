@@ -99,7 +99,9 @@ export function MoodMenu() {
               </svg>
               <div className="absolute top-0 left-0 pt-2 pl-4 pr-6 font-dot text-beige text-2xl whitespace-pre-line">
                 {selectedCategory === FoodCategory.RECOMMENDED
-                  ? "これまでの経験から君におすすめする三品だよ。\n\nもちろん他の料理も自由に選んでいい。"
+                  ? getPrimaryMoodItem() === noneMoodItem
+                    ? "無の感情におすすめする料理はないよ。\n\n他の料理を自由に選んでください。"
+                    : "これまでの経験から君におすすめする三品だよ。\n\nもちろん他の料理も自由に選んでいい。"
                   : "君がどの料理を選ぶのか…楽しみだな。"}
               </div>
             </div>
