@@ -138,7 +138,12 @@ const MenuList = () => {
                   "repeating-linear-gradient(to right, #FFEFD0, #FFEFD0 10px, transparent 10px, transparent 20px)",
               }}
             ></div>
-            <span className="font-dot text-3xl text-beige text-right ">
+            <span
+              className="font-dot text-3xl text-beige text-right"
+              onClick={() => {
+                setselectedFood(food.description, food.title);
+              }}
+            >
               {food.title}
             </span>
           </div>
