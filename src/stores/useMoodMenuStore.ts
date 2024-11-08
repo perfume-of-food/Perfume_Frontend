@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { MoodFoodPairings, FoodCategory, Food } from "../types/Mood";
+import { MoodFoodPairings, FoodCategory, Food, Mood } from "../types/Mood";
 import { useGameManagerStore } from "./useGameManagerStore";
 import { FoodItem, foodList } from "../constants/foodConstants";
 import { MoodItem } from "@/constants/moodConstants";
@@ -19,9 +19,11 @@ interface MoodMenuState {
   setDescriptionFlash: (isFlashing: boolean) => void;
 
   getRecommendedFoods: (baseMoodItem: MoodItem) => FoodItem[];
+
+  getMoodForSelectedFood: () => Mood | null;
 }
 
-export const useMoodMenuStore = create<MoodMenuState>((set) => ({
+export const useMoodMenuStore = create<MoodMenuState>((set, get) => ({
   // initial state
   selectedCategory: FoodCategory.RECOMMENDED,
   selectedFood: null,
@@ -41,5 +43,14 @@ export const useMoodMenuStore = create<MoodMenuState>((set) => ({
       const foodName = MoodFoodPairings[mood.name];
       return foodList.find((food) => food.title === foodName)!;
     });
+  },
+  getMoodForSelectedFood: () => {
+    const state = get();
+    const selectedFoodTitle = state.selectedFood?.title;
+    // 从 MoodFoodPairings 中找到对应的心情
+    const mood = Object.entries(MoodFoodPairings).find(
+      ([_mood, food]) => food === selectedFoodTitle
+    )?.[0] as Mood | null;
+    return mood ?? null;
   },
 }));
