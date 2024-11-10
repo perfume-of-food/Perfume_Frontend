@@ -20,7 +20,8 @@ export const Conversation = () => {
       step === Step.NAME_ENTRY ||
       step === Step.MOOD_SLIDER_FIRST ||
       step === Step.MOOD_SLIDER_SECOND ||
-      step === Step.MOOD_CONFIRMATION
+      step === Step.MOOD_CONFIRMATION ||
+      step === Step.REASON_SHARING
     )
       return;
 

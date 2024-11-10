@@ -29,7 +29,9 @@ export const conversationFlow: DialogueSection[] = [
   },
   {
     step: Step.MOOD_INTRO_START,
-    messages: ["さて、{userName}さん、最近の君はどんな気持ちで過ごしているかを教えて欲しい。あるいは、過去の心に残る瞬間を思い出してもいいよ。"],
+    messages: [
+      "さて、{userName}さん、最近の君はどんな気持ちで過ごしているかを教えて欲しい。あるいは、過去の心に残る瞬間を思い出してもいいよ。",
+    ],
   },
   {
     step: Step.MOOD_INTRO_HAPPY,
@@ -102,13 +104,23 @@ export const conversationFlow: DialogueSection[] = [
     step: Step.PERFUME_PRINTING,
     messages: [],
   },
+  // {
+  //   step: Step.ENDING,
+  //   messages: [
+  //     "お待たせ。",
+  //     "君の感情が香りとなり、この特別なレシートに込められているよ。",
+  //     "どうぞレシートを持ち帰って、この旅の記念にしてね。",
+  //     "また会える日を楽しみにしているよ。",
+  //   ],
+  // },
   {
-    step: Step.ENDING,
-    messages: [
-      "お待たせ。",
-      "君の感情が香りとなり、この特別なレシートに込められているよ。",
-      "どうぞレシートを持ち帰って、この旅の記念にしてね。",
-      "また会える日を楽しみにしているよ。",
-    ],
+    step: Step.REASON_SHARING,
+    messages: ["最後に、この料理を選んだ理由を教えてくれたら嬉しいなー"],
   },
+  // {
+  //   step: Step.MOOD_STATISTICS,
+  //   messages: [
+  //     "ちなみに、今まで来たお客さんの中で、君と同じ感情を選んだ人は全体の{primaryMoodPercentage}%、さらに同じ料理を選んだ人は{foodPercentage}%なんだ。なんだか面白いね。",
+  //   ],
+  // },
 ];

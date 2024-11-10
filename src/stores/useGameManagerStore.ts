@@ -23,6 +23,8 @@ interface GameState {
   getRelatedMoodItems: (baseMoodItem: MoodItem) => MoodItem[];
   printTaskId: number;
   setPrintTaskId: (taskId: number) => void;
+  foodChoiceReason: string;
+  setFoodChoiceReason: (reason: string) => void;
 }
 
 export const useGameManagerStore = create<GameState>((set, get) => ({
@@ -81,4 +83,6 @@ export const useGameManagerStore = create<GameState>((set, get) => ({
   },
   printTaskId: 0,
   setPrintTaskId: (taskId) => set({ printTaskId: taskId }),
+  foodChoiceReason: "",
+  setFoodChoiceReason: (reason) => set({ foodChoiceReason: reason }),
 }));

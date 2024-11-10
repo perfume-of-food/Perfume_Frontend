@@ -13,6 +13,7 @@ export interface PrintRequest {
   perfume: Perfume;
   food: Food;
   customerName: string;
+  reason: string;
 }
 
 export interface PrintResponse {
