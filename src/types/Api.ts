@@ -14,6 +14,8 @@ export interface PrintRequest {
   food: Food;
   customerName: string;
   reason: string;
+  joyfulValue: number;
+  emotionValue: number;
 }
 
 export interface PrintResponse {

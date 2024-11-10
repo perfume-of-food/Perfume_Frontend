@@ -10,7 +10,7 @@ import { useMoodMenuStore } from "@/stores/useMoodMenuStore";
 import { startPrint } from "@/api/PrintService";
 
 export function ReasonSharing() {
-  const { userName, getPrimaryMoodItem, setPrintTaskId, moveToNextStep } =
+  const { userName, getPrimaryMoodItem, setPrintTaskId, moveToNextStep, joyfulValue, emotionValue } =
     useGameManagerStore();
   const { selectedFood, getMoodForSelectedFood } = useMoodMenuStore();
 
@@ -33,6 +33,8 @@ export function ReasonSharing() {
         food: selectedFood!.title,
         task_id: taskId,
         reason: currentReason,
+        joyfulValue,
+        emotionValue,
       });
       if (res.status === 200) {
         setPrintTaskId(taskId);
