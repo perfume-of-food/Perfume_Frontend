@@ -8,47 +8,15 @@ import ConfirmPanel from "@/components/ConfirmPanel/ConfirmPanel";
 import owl_stick from "@/assets/owl_stick.png";
 import { useMoodMenuStore } from "@/stores/useMoodMenuStore";
 import { useGameManagerStore } from "@/stores/useGameManagerStore";
-import { FoodCategory, Mood } from "@/types/Mood";
-import { startPrint } from "@/api/PrintService";
+import { FoodCategory } from "@/types/Mood";
+
 import { noneMoodItem } from "@/constants/moodConstants";
 
 export function MoodMenu() {
-  const { userName, moveToNextStep, setPrintTaskId, getPrimaryMoodItem } =
-    useGameManagerStore();
-  const {
-    selectedFood,
-    setDescriptionFlash,
-    selectedCategory,
-    getMoodForSelectedFood,
-  } = useMoodMenuStore();
+  const { moveToNextStep, getPrimaryMoodItem } = useGameManagerStore();
+  const { selectedFood, setDescriptionFlash, selectedCategory } =
+    useMoodMenuStore();
   const [showConfirmPanel, setShowConfirmPanel] = useState(false);
-
-  const handleConfirm = async () => {
-    let mood: Mood | null  = null;
-    if (getPrimaryMoodItem() === noneMoodItem) {
-      mood = noneMoodItem.name;
-    } else {
-      mood = getMoodForSelectedFood()!;
-    }
-
-    try {
-      const taskId = Date.now();
-      const res = await startPrint({
-        customerName: userName,
-        perfume: mood,
-        food: selectedFood!.title,
-        task_id: taskId,
-      });
-      if (res.status === 200) {
-        setPrintTaskId(taskId);
-        moveToNextStep();
-      } else {
-        console.error("Print failed:", res.data.message);
-      }
-    } catch (error) {
-      console.error("Print failed:", error);
-    }
-  };
 
   return (
     <div className="w-screen h-screen border-x-[32px] border-y-[28px] border-black">
@@ -136,7 +104,7 @@ export function MoodMenu() {
         <ConfirmPanel
           title={selectedFood?.title || ""}
           onClose={() => setShowConfirmPanel(false)}
-          onConfirm={handleConfirm}
+          onConfirm={moveToNextStep}
           showButtons={true}
         />
       )}

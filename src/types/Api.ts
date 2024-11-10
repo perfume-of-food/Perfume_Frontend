@@ -13,6 +13,9 @@ export interface PrintRequest {
   perfume: Perfume;
   food: Food;
   customerName: string;
+  reason: string;
+  joyfulValue: number;
+  emotionValue: number;
 }
 
 export interface PrintResponse {

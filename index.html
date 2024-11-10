@@ -1,14 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/owl_fav.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="apple-touch-icon" sizes="180x180" href="/owl_fav.png" />
     <meta name="apple-mobile-web-app-title" content="Perfume" />
     <title>Perfume</title>
   </head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-W698Y65JF3"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("get", "G-W698Y65JF3", "client_id", (clientId) => {
+      console.log("before", clientId);
+    });
+
+    gtag("config", "G-W698Y65JF3", {
+      client_id: Date.now().toString(),
+      send_page_view: false,
+    });
+
+    gtag("get", "G-W698Y65JF3", "client_id", (clientId) => {
+      console.log("after", clientId);
+    });
+  </script>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

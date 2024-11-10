@@ -16,7 +16,7 @@ import { Survey } from "@/pages/Survey/Survey";
 import { MoodMenu } from "@/pages/MoodMenu/MoodMenu";
 import { MoodMenuIntro } from "@/pages/MoodMenuIntro/MoodMenuIntro";
 import { PerfumePrinting } from "@/pages/PerfumePrinting/PerfumePrinting";
-import { Ending } from "@/pages/Ending/Ending";
+import { ReasonSharing } from "@/pages/ReasonSharing/ReasonSharing";
 function AppRoutes() {
   const { step } = useGameManagerStore();
   const navigate = useNavigate();
@@ -35,12 +35,19 @@ function AppRoutes() {
       case Step.MOOD_MENU:
         navigate("/mood-menu");
         break;
+      case Step.REASON_SHARING:
+        navigate("/selection-reason");
+        break;
       case Step.PERFUME_PRINTING:
         navigate("/perfume-printing");
         break;
-      case Step.ENDING:
-        navigate("/ending");
-        break;
+      // case Step.ENDING:
+      //   navigate("/ending");
+      //   break;
+
+      // case Step.MOOD_STATISTICS:
+      //   navigate("/mood-statistics");
+      //   break;
       case Step.SURVEY:
         navigate("/survey");
         break;
@@ -55,8 +62,10 @@ function AppRoutes() {
       <Route path="/mood-pickup" element={<MoodPickup />} />
       <Route path="/mood-menu-intro" element={<MoodMenuIntro />} />
       <Route path="/mood-menu" element={<MoodMenu />} />
+      <Route path="/selection-reason" element={<ReasonSharing />} />
       <Route path="/perfume-printing" element={<PerfumePrinting />} />
-      <Route path="/ending" element={<Ending />} />
+      {/* <Route path="/ending" element={<Ending />} /> */}
+      {/* <Route path="/mood-statistics" element={<MoodStatistics />} /> */}
       <Route path="/survey" element={<Survey />} />
     </Routes>
   );
